@@ -32,11 +32,11 @@
                 <i class="fa-solid fa-bars"></i>
             </div>
             <nav class="nav-links" id="nav-links">
-                <a href="#hero">Inicio</a>
-                <a href="#nosotros">Nosotros</a>
-                <a href="#seguro">Seguros</a>
-                <a href="#elegirnos">¿Por qué elegirnos?</a>
-                <a href="#contacto" class="btn btn-primary">Contacto</a>
+                <a href="#hero" data-i18n="nav1">Inicio</a>
+                <a href="#nosotros" data-i18n="nav2">Nosotros</a>
+                <a href="#seguro" data-i18n="nav3">Seguros</a>
+                <a href="#elegirnos" data-i18n="nav4">¿Por qué elegirnos?</a>
+                <a href="#contacto" class="btn btn-primary" data-i18n="nav5">Contacto</a>
             </nav>
         </div>
     </header>
@@ -48,17 +48,21 @@
             <div class="carousel-slide active" style="background-image: url('assets/images/im4.jpeg');"></div>
             <div class="carousel-slide" style="background-image: url('assets/images/im5.jpg');"></div>
             <div class="carousel-slide" style="background-image: url('assets/images/im6.jpg');"></div>
+            <div class="carousel-slide" style="background-image: url('assets/images/im9.jpg');"></div>
 
         </div>
 
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <div class="hero-text-box">
-                <h1 class="hero-title">Especialistas en <br><span class="text-orange">Seguros Hipotecarios</span>
+                <h1 class="hero-title" data-i18n="hero_title">Especialistas en <br><span class="text-orange">Seguros
+                        Hipotecarios</span>
                 </h1>
-                <p class="hero-subtitle">Brindamos asesoría técnica y legal especializada para gestionar la
+                <p class="hero-subtitle" data-i18n="hero_subtitle">Brindamos asesoría técnica y legal especializada para
+                    gestionar la
                     indemnización de seguros hipotecarios ante siniestros climáticos y fortuitos en el Perú.</p>
-                <a href="#contacto" class="btn btn-primary btn-large">Proteger mi Patrimonio Ahora</a>
+                <a href="#contacto" class="btn btn-primary btn-large" data-i18n="hero_btn">Proteger mi Patrimonio
+                    Ahora</a>
             </div>
         </div>
         <!-- Curve Divider -->
@@ -71,7 +75,8 @@
                 <div class="icon-badge">
                     <i class="fa-solid fa-shield-halved"></i>
                 </div>
-                <h2>TU HOGAR EN BUENAS MANOS: <br><span class="text-blue">CONFIANZA, PROTECCIÓN Y RESPALDO
+                <h2 data-i18n="val_h2">TU HOGAR EN BUENAS MANOS: <br><span class="text-blue">CONFIANZA, PROTECCIÓN Y
+                        RESPALDO
                         PROFESIONAL</span></h2>
             </div>
 
@@ -86,7 +91,7 @@
                         cobertura, garantizando que puedan acceder a la indemnización que les corresponde.</p>
                 </div>
                 <div class="valor-image">
-                    <img src="assets/images/im8.png"w
+                    <img src="assets/images/im8.png" w
                         alt="Hombre de negocios inspeccionando casa, éxito financiero y respaldo"
                         class="oval-image shadow-large">
                 </div>
@@ -98,7 +103,8 @@
     <section id="riesgos" class="section bg-light text-center fade-in-section">
         <div class="container">
             <div class="section-header">
-                <h2>Protegemos tu hogar contra <br><span class="text-orange">siniestros climáticos y fortuitos</span>
+                <h2 data-i18n="riesgos_h2">Protegemos tu hogar contra <br><span class="text-orange">siniestros
+                        climáticos y fortuitos</span>
                 </h2>
             </div>
 
@@ -109,15 +115,14 @@
                         <img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
                             alt="Lluvias">
                     </div>
-                    <h3><i class="fa-solid fa-droplet text-blue"></i> LLUVIAS</h3>
+                    <h3 data-i18n="r1"><i class="fa-solid fa-droplet text-blue"></i> LLUVIAS</h3>
                 </div>
                 <!-- Riesgo 2 -->
                 <div class="riesgo-card">
                     <div class="circle-img-container">
-                        <img src="assets/images/sis1.jpg"
-                            alt="Sismos">
+                        <img src="assets/images/sis1.jpg" alt="Sismos">
                     </div>
-                    <h3><i class="fa-solid fa-house-crack text-orange"></i> SISMOS</h3>
+                    <h3 data-i18n="r2"><i class="fa-solid fa-house-crack text-orange"></i> SISMOS</h3>
                 </div>
                 <!-- Riesgo 3 -->
                 <div class="riesgo-card">
@@ -125,15 +130,14 @@
                         <img src="https://images.unsplash.com/photo-1547683905-f686c993aae5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
                             alt="Inundaciones">
                     </div>
-                    <h3><i class="fa-solid fa-water text-blue"></i> INUNDACIONES</h3>
+                    <h3 data-i18n="r3"><i class="fa-solid fa-water text-blue"></i> INUNDACIONES</h3>
                 </div>
                 <!-- Riesgo 4 -->
                 <div class="riesgo-card">
                     <div class="circle-img-container">
-                        <img src="assets/images/ince1.jpg"
-                            alt="Incendios">
+                        <img src="assets/images/ince1.jpg" alt="Incendios">
                     </div>
-                    <h3><i class="fa-solid fa-fire text-orange"></i> INCENDIOS</h3>
+                    <h3 data-i18n="r4"><i class="fa-solid fa-fire text-orange"></i> INCENDIOS</h3>
                 </div>
             </div>
         </div>
@@ -143,11 +147,12 @@
     <section id="seguro" class="section seguro-section fade-in-section">
         <div class="container container-flex">
             <div class="seguro-image-col">
-                <img src="assets/images/im6.png" alt="Pareja feliz con seguro hipotecario"
-                    class="rounded-image shadow-large">
+                <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Pareja analizando documentos de seguro" class="rounded-image shadow-large">
             </div>
             <div class="seguro-text-col">
-                <h2 class="section-title">¿CUENTAS CON UN <br><span class="text-orange">SEGURO HIPOTECARIO?</span></h2>
+                <h2 class="section-title" data-i18n="seguro_h2">¿CUENTAS CON UN <br><span class="text-orange">SEGURO
+                        HIPOTECARIO?</span></h2>
                 <div class="card-text">
                     <p class="highlight-text">Los seguros hipotecarios cuentan con un seguro contra todo riesgo que
                         brindan cobertura frente a siniestros climáticos y eventos fortuitos como sismos, lluvias
@@ -193,7 +198,7 @@
             <div class="valores-container mt-5">
                 <div class="icon-header center">
                     <i class="fa-solid fa-star text-orange"></i>
-                    <h2>Empresa y Valores</h2>
+                    <h2 data-i18n="nosotros_h2">Empresa y Valores</h2>
                 </div>
                 <div class="valores-grid">
                     <div class="valor-item">
@@ -236,7 +241,8 @@
         <div class="container">
             <div class="elegirnos-grid">
                 <div class="elegirnos-content">
-                    <h2 class="text-white">¿POR QUÉ CONFIAR <br><span class="text-orange">EN NOSOTROS?</span></h2>
+                    <h2 class="text-white" data-i18n="elegir_h2">¿POR QUÉ CONFIAR <br><span class="text-orange">EN
+                            NOSOTROS?</span></h2>
                     <p class="lead-white">Porque brindamos un servicio integral basado en la confianza, el
                         profesionalismo y la eficiencia, acompañando a nuestros clientes en todo el proceso de
                         activación de su seguro hipotecario hasta la obtención de su indemnización.</p>
@@ -255,7 +261,7 @@
                             tranquilidad.</strong></p>
                 </div>
                 <div class="elegirnos-impacto bg-white-card">
-                    <h3 class="text-blue">IMPACTO DE LAS LLUVIAS Y EL CAMBIO CLIMÁTICO</h3>
+                    <h3 class="text-blue" data-i18n="elegir_btn">IMPACTO DE LAS LLUVIAS Y EL CAMBIO CLIMÁTICO</h3>
                     <img src="assets/images/im7.png" alt="Impacto climático gráfico cómic"
                         class="impacto-img shadow-small rounded-image">
 
@@ -274,13 +280,78 @@
                 </div>
             </div>
         </div>
+        </div>
+    </section>
+
+    <!-- Social Proof: Logos -->
+    <section class="section bg-light text-center fade-in-section pb-4 pt-0"
+        style="border-top: 1px solid var(--bg-lines); padding-top: 40px !important;">
+        <div class="container overflow-hidden">
+            <h4 class="text-muted mb-4" data-i18n="logos_h4"
+                style="font-family: var(--font-body); font-weight: 500; font-size: 1.1rem;">Gestionamos pólizas de:</h4>
+            <div class="logos-slider">
+                <div class="logos-track">
+                    <!-- Original -->
+                    <div class="logo-item"><i class="fa-solid fa-car-burst text-muted"></i> MAPFRE</div>
+                    <div class="logo-item"><i class="fa-solid fa-umbrella text-muted"></i> PACÍFICO</div>
+                    <div class="logo-item"><i class="fa-solid fa-shield-virus text-muted"></i> RÍMAC</div>
+                    <div class="logo-item"><i class="fa-solid fa-plus text-muted"></i> LA POSITIVA</div>
+                    <div class="logo-item"><i class="fa-solid fa-building-shield text-muted"></i> INTERSEGURO</div>
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="logo-item"><i class="fa-solid fa-car-burst text-muted"></i> MAPFRE</div>
+                    <div class="logo-item"><i class="fa-solid fa-umbrella text-muted"></i> PACÍFICO</div>
+                    <div class="logo-item"><i class="fa-solid fa-shield-virus text-muted"></i> RÍMAC</div>
+                    <div class="logo-item"><i class="fa-solid fa-plus text-muted"></i> LA POSITIVA</div>
+                    <div class="logo-item"><i class="fa-solid fa-building-shield text-muted"></i> INTERSEGURO</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof: Testimonios -->
+    <section class="section testimonios-section fade-in-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center; border: none; padding: 0;">
+                <h2 data-i18n="testimonio_h2">Lo que dicen <br><span class="text-orange">nuestros clientes</span></h2>
+            </div>
+            <div class="testimonios-grid">
+                <div class="testimonio-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star text-orange"></i><i class="fa-solid fa-star text-orange"></i><i
+                            class="fa-solid fa-star text-orange"></i><i class="fa-solid fa-star text-orange"></i><i
+                            class="fa-solid fa-star text-orange"></i>
+                    </div>
+                    <p class="testimonio-text">"Mi casa sufrió graves daños por las lluvias y no sabía cómo proceder con
+                        mi seguro. El equipo de Construcvida me asesoró en todo momento y lograron que mi siniestro sea
+                        indemnizado rápidamente."</p>
+                    <div class="testimonio-author">
+                        <strong>Carlos Morales</strong>
+                        <span>Piura, Perú</span>
+                    </div>
+                </div>
+                <div class="testimonio-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star text-orange"></i><i class="fa-solid fa-star text-orange"></i><i
+                            class="fa-solid fa-star text-orange"></i><i class="fa-solid fa-star text-orange"></i><i
+                            class="fa-solid fa-star text-orange"></i>
+                    </div>
+                    <p class="testimonio-text">"Excelente servicio. Fueron muy transparentes desde el inicio, me
+                        explicaron paso a paso y solo cobraron al final cuando logré recuperar la indemnización de mi
+                        seguro hipotecario por el sismo."</p>
+                    <div class="testimonio-author">
+                        <strong>Ana López</strong>
+                        <span>Lima, Perú</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer / Contacto -->
     <footer id="contacto" class="footer fade-in-section">
         <div class="container footer-content">
             <div class="footer-info">
-                <h2>ENFOQUE DE <span class="text-orange">EMPRESA</span></h2>
+                <h2 data-i18n="footer_h2">ENFOQUE DE <span class="text-orange">EMPRESA</span></h2>
                 <p>En este contexto, nuestra empresa se convierte en tu aliado estratégico, brindando asesoría técnica y
                     legal especializada, y acompañándote en cada etapa del proceso para garantizar la correcta
                     activación de tu seguro y la obtención de la indemnización que te corresponde.</p>
@@ -294,7 +365,8 @@
             </div>
 
             <div class="footer-form-container shadow-large">
-                <h3 class="text-center mb-4">Solicita Asesoría <span class="text-orange">Gratuita</span></h3>
+                <h3 class="text-center mb-4" data-i18n="form_h3">Solicita Asesoría <span
+                        class="text-orange">Gratuita</span></h3>
                 <form id="contactForm" class="contact-form">
                     <div class="form-group">
                         <label for="nombre">Nombre Completo</label>
@@ -326,15 +398,44 @@
                         <textarea id="mensaje" name="mensaje" rows="4"
                             placeholder="Describe brevemente el daño ocurrido en la vivienda..." required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Solicitar Mi Asesoría</button>
+                    <button type="submit" class="btn btn-primary btn-block" data-i18n="form_btn">Solicitar Mi
+                        Asesoría</button>
                 </form>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Construcvida. Todos los derechos reservados. Confianza que perdura, calidad que se construye.
-            </p>
+        </div>
+        <div class="footer-legal">
+            <div class="container legal-flex">
+                <div class="legal-info">
+                    <p><strong>Construcvida S.A.C.</strong> | RUC: 20123456789</p>
+                    <p>Av. Principal 123, Oficina 405, Lima, Perú</p>
+                </div>
+                <div class="legal-links">
+                    <a href="#">Políticas de Privacidad</a>
+                    <a href="#">Términos y Condiciones</a>
+                    <a href="#" class="libro-reclamaciones">
+                        <i class="fa-solid fa-book-open"></i> Libro de Reclamaciones
+                    </a>
+                </div>
+            </div>
+            <div class="copyright-line">
+                <p>&copy; 2026 Construcvida. Todos los derechos reservados. Confianza que perdura, calidad que se
+                    construye.
+                </p>
+            </div>
         </div>
     </footer>
+
+    <!-- Floating Tools Pill -->
+    <div class="floating-tools shadow-large">
+        <div class="tool-btn lang-btn" id="langBtn" title="Cambiar Idioma">ES</div>
+        <div class="tool-btn theme-btn" id="themeBtn" title="Modo Oscuro/Claro"><i class="fa-regular fa-moon"></i></div>
+    </div>
+
+    <!-- Scroll Top Button -->
+    <div class="scroll-top shadow-large" id="scrollTop" title="Volver Arriba">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
 
     <!-- Botón Whatsapp -->
     <a href="https://wa.me/51999999999" target="_blank" class="whatsapp-btn shadow-large">
@@ -342,6 +443,7 @@
     </a>
 
     <!-- Custom JS -->
+    <script src="js/translations.js"></script>
     <script src="js/main.js"></script>
 </body>
 

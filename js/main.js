@@ -95,4 +95,68 @@ document.addEventListener("DOMContentLoaded", () => {
             slides[currentSlide].classList.add('active');
         }, 2000); // 2000 = 2 segundos solicitados
     }
+
+    // 6. Floating Controls: Scroll to Top
+    const scrollTopBtn = document.getElementById('scrollTop');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // 7. Theme Toggle (Dark Mode)
+    const themeBtn = document.getElementById('themeBtn');
+    if (themeBtn) {
+        // Load preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            themeBtn.innerHTML = '<i class="fa-regular fa-sun"></i>';
+        }
+
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            
+            if (isDark) {
+                localStorage.setItem('theme', 'dark');
+                themeBtn.innerHTML = '<i class="fa-regular fa-sun"></i>';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeBtn.innerHTML = '<i class="fa-regular fa-moon"></i>';
+            }
+        });
+    }
+
+    // 8. Language Toggle Translator
+    const langBtn = document.getElementById('langBtn');
+    if (langBtn) {
+        const langs = ['ES', 'EN', 'PT'];
+        let currentLangIdx = 0;
+        langBtn.addEventListener('click', () => {
+            currentLangIdx = (currentLangIdx + 1) % langs.length;
+            const newLangCode = langs[currentLangIdx].toLowerCase();
+            langBtn.innerText = langs[currentLangIdx];
+            
+            // Actualizar todos los nodos que tengan data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (window.translations && window.translations[newLangCode] && window.translations[newLangCode][key]) {
+                    el.innerHTML = window.translations[newLangCode][key];
+                }
+            });
+        });
+    }
+
 });

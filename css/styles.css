@@ -230,7 +230,7 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.55); /* Capa oscura para hacer resaltar el texto blanco */
+    background: rgba(0, 0, 0, 0.65); /* Aumentado para mayor legibilidad */
     z-index: 2;
 }
 
@@ -255,7 +255,7 @@ ul {
     margin-bottom: 1.5rem;
     line-height: 1.2;
     color: #ffffff;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    text-shadow: 2px 4px 12px rgba(0,0,0,0.8); /* Mayor sombra para micro-contraste */
 }
 
 .hero-subtitle {
@@ -334,7 +334,7 @@ ul {
 .circle-img-container {
     width: 100%;
     height: 160px;
-    border-radius: 0; /* Imagen rectangular */
+    border-radius: 8px; /* Bordes redondeados más suaves */
     overflow: hidden;
     margin-bottom: 20px;
 }
@@ -350,6 +350,10 @@ ul {
     margin: 0;
     margin-top: auto;
     font-family: var(--font-body);
+}
+
+.riesgo-card h3 i {
+    margin-right: 8px; /* Espacio para que el ícono respire */
 }
 
 /* Seguro Hipotecario */
@@ -524,7 +528,7 @@ hr {
 .footer {
     background-color: #f0f4f8;
     position: relative;
-    padding: 80px 0 30px 0;
+    padding: 80px 0 0 0; /* Quitamos el padding inferior para que el footer dark llegue al borde */
 }
 
 .footer-content {
@@ -593,12 +597,193 @@ hr {
     width: 100%;
 }
 
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid #ddd;
-    padding-top: 20px;
+/* Social Proof: Logos Slider */
+.overflow-hidden {
+    overflow: hidden;
+    width: 100%;
+}
+
+.logos-slider {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 0;
+}
+
+.logos-track {
+    display: flex;
+    width: max-content;
+    gap: 80px; 
+    animation: scrollLogos 25s linear infinite;
+    align-items: center;
+}
+
+@keyframes scrollLogos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 40px)); }
+}
+
+.logo-item {
+    font-size: 1.8rem;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    color: var(--text-muted); /* Fallback */
+    filter: grayscale(100%);
+    opacity: 0.4; 
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.logo-item:hover {
+    filter: grayscale(0%);
+    opacity: 1; /* Retoma protagonismo en hover */
+    color: var(--primary-color);
+}
+
+.pb-4 { padding-bottom: 2rem; }
+.pt-0 { padding-top: 0; }
+.text-muted { color: var(--text-muted); }
+
+/* Social Proof: Testimonios */
+.testimonios-section {
+    background-color: #ffffff;
+}
+
+.testimonios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 2rem;
+}
+
+.testimonio-card {
+    background: var(--bg-light);
+    padding: 40px;
+    border: 1px solid var(--bg-lines);
+    position: relative;
+    border-top: 3px solid var(--primary-color);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column; /* Para alinear con stretch */
+}
+
+.testimonio-card:hover {
+    box-shadow: var(--shadow-soft);
+    border-top-color: var(--accent-orange);
+}
+
+.testimonio-card::before {
+    content: "\201C";
+    font-size: 5rem;
+    color: rgba(13, 30, 54, 0.05);
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-family: serif;
+    line-height: 1;
+}
+
+.stars {
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonio-text {
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--text-main);
+    position: relative;
+    z-index: 1;
+}
+
+.testimonio-author {
+    margin-top: auto; /* Empuja el autor hasta abajo si hay espacio sobrante */
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonio-author strong {
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+}
+
+.testimonio-author span {
     font-size: 0.9rem;
     color: var(--text-muted);
+}
+
+/* Footer Legal Bottom */
+.footer-legal {
+    background-color: var(--primary-color);
+    color: #e0e6ed;
+    padding: 50px 0 20px 0;
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+.legal-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.legal-info p {
+    margin-bottom: 5px;
+}
+
+.legal-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: right;
+    align-items: flex-end;
+}
+
+.legal-links a {
+    color: #e0e6ed;
+    font-weight: 500;
+}
+
+.legal-links a:hover {
+    color: var(--accent-orange);
+}
+
+.libro-reclamaciones {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin-top: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+}
+
+.libro-reclamaciones:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--accent-orange);
+}
+
+.copyright-line {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+}
+
+.copyright-line p {
+    margin-bottom: 0;
 }
 
 /* WhatsApp Flotante */
@@ -633,6 +818,166 @@ hr {
     will-change: opacity, visibility;
 }
 
+/* Floating UI Components */
+.floating-tools {
+    position: fixed;
+    right: 30px;
+    bottom: 120px; /* Sobre la mitad entre Whatsapp y parte inferior */
+    background: #ffffff;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 5px;
+    z-index: 99;
+    border: 1px solid var(--bg-lines);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.tool-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--text-main);
+    transition: var(--transition);
+    font-size: 1.1rem;
+}
+
+.tool-btn:hover {
+    background-color: var(--bg-light);
+    color: var(--accent-orange);
+}
+
+.lang-btn {
+    font-size: 0.95rem;
+}
+
+.scroll-top {
+    position: fixed;
+    right: 30px;
+    bottom: 250px; /* Más arriba de la herramienta flotante, o podemos ajustarlo a ser una píldora unida. Lo pegaremos al pill. Cambiamos bottom: 250px es muy alto */
+    bottom: 220px;
+    width: 50px;
+    height: 50px;
+    background: #ffffff;
+    color: var(--text-main);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 99;
+    border: 1px solid var(--bg-lines);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    color: var(--accent-orange);
+    background-color: var(--bg-light);
+}
+
+/* Dark Theme overrides */
+body.dark-theme {
+    --primary-color: #64b5f6; /* Lighter blue for dark theme */
+    --text-main: #e0e6ed;
+    --text-muted: #a0aab5;
+    --bg-light: #1e293b; 
+    --bg-lines: #334155;
+    background-color: #0f172a;
+}
+
+/* Color updates for dark mode */
+body.dark-theme .navbar,
+body.dark-theme .hero,
+body.dark-theme .section,
+body.dark-theme .testimonios-section,
+body.dark-theme .footer {
+    background-color: #0f172a;
+}
+
+body.dark-theme .bg-light,
+body.dark-theme .nosotros-box,
+body.dark-theme .valor-item,
+body.dark-theme .riesgo-card,
+body.dark-theme .card-text,
+body.dark-theme .footer-form-container,
+body.dark-theme .testimonio-card,
+body.dark-theme .bg-white-card {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #e0e6ed;
+}
+
+body.dark-theme .form-group input,
+body.dark-theme .form-group textarea,
+body.dark-theme .form-group select {
+    background-color: #0f172a;
+    border-color: #334155;
+    color: #e0e6ed;
+}
+
+body.dark-theme .form-group input::placeholder,
+body.dark-theme .form-group textarea::placeholder {
+    color: #64748b;
+}
+
+body.dark-theme .dark-section,
+body.dark-theme .footer-legal {
+    background-color: #0b1120;
+}
+
+body.dark-theme .text-blue {
+    color: var(--primary-color) !important;
+}
+
+body.dark-theme h1, body.dark-theme h2, body.dark-theme h3, 
+body.dark-theme h4, body.dark-theme h5, body.dark-theme h6 {
+    color: #f8fafc;
+}
+
+body.dark-theme .text-orange { color: var(--accent-orange) !important; }
+
+body.dark-theme .logo,
+body.dark-theme .logo-item {
+    color: #f8fafc;
+}
+
+body.dark-theme .nav-links a:not(.btn) {
+    color: #e0e6ed;
+}
+
+body.dark-theme .floating-tools, 
+body.dark-theme .scroll-top {
+    background: #1e293b;
+    border-color: #334155;
+    color: #e0e6ed;
+}
+
+body.dark-theme .tool-btn {
+    color: #e0e6ed;
+}
+
+body.dark-theme .tool-btn:hover, 
+body.dark-theme .scroll-top:hover {
+    background: #334155;
+}
+
 .fade-in-section.is-visible {
     opacity: 1;
     transform: none;
@@ -661,9 +1006,21 @@ hr {
     .container-flex,
     .nosotros-top,
     .elegirnos-grid,
-    .footer-content {
+    .footer-content,
+    .testimonios-grid {
         grid-template-columns: 1fr;
         gap: 30px;
+    }
+
+    .legal-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .legal-links {
+        align-items: center;
+        text-align: center;
     }
 
     .riesgos-grid {
