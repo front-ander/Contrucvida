@@ -1,18 +1,24 @@
 /* Reset y Variables Globales (Estilo Ingeniería/Corporativo Duro) */
 :root {
-    --primary-color: #0d1e36; /* Azul Oscuro Sólido */
-    --accent-orange: #f26b2b; /* Naranja Industrial */
+    --primary-color: #0d1e36;
+    /* Azul Oscuro Sólido */
+    --accent-orange: #f26b2b;
+    /* Naranja Industrial */
     --accent-orange-hover: #d1511b;
-    --text-main: #2b2f33; /* Texto principal oscuro y de alto contraste */
+    --text-main: #2b2f33;
+    /* Texto principal oscuro y de alto contraste */
     --text-muted: #5e666e;
-    --bg-light: #f4f6fa; /* Gris técnico claro */
-    --bg-lines: #d9e0eb; /* Color de bordes y líneas separadoras */
-    
+    --bg-light: #f4f6fa;
+    /* Gris técnico claro */
+    --bg-lines: #d9e0eb;
+    /* Color de bordes y líneas separadoras */
+
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Inter', sans-serif;
 
     --transition: all 0.25s ease-out;
-    --shadow-soft: 0 4px 10px rgba(13, 30, 54, 0.05); /* Sombra casi imperceptible, más seca */
+    --shadow-soft: 0 4px 10px rgba(13, 30, 54, 0.05);
+    /* Sombra casi imperceptible, más seca */
     --shadow-large: 0 10px 30px rgba(13, 30, 54, 0.12);
 }
 
@@ -32,9 +38,15 @@ body {
     /* Eliminamos fondos de IA-puntos, buscamos limpieza absoluta tipo papel o plano */
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
-    font-weight: 800; /* Extra bold para impacto industrial */
+    font-weight: 800;
+    /* Extra bold para impacto industrial */
     line-height: 1.2;
     margin-bottom: 1rem;
     color: var(--primary-color);
@@ -72,24 +84,58 @@ ul {
     position: relative;
 }
 
-.text-center { text-align: center; }
-.text-orange { color: var(--accent-orange) !important; }
-.text-blue { color: var(--primary-color) !important; }
-.text-white { color: #ffffff !important; }
+.text-center {
+    text-align: center;
+}
+
+.text-orange {
+    color: var(--accent-orange) !important;
+}
+
+.text-blue {
+    color: var(--primary-color) !important;
+}
+
+.text-white {
+    color: #ffffff !important;
+}
 
 /* Eliminamos bordes redondeados y glassmorphism */
-.bg-light { background-color: var(--bg-light); border: 1px solid var(--bg-lines); }
-.shadow-soft { box-shadow: var(--shadow-soft); }
-.shadow-large { box-shadow: var(--shadow-large); }
+.bg-light {
+    background-color: var(--bg-light);
+    border: 1px solid var(--bg-lines);
+}
 
-.rounded-image { border-radius: 4px; width: 100%; height: auto; object-fit: cover; }
-.oval-image { border-radius: 0; width: 100%; height: auto; object-fit: cover; } /* Se vuelve rectangular */
+.shadow-soft {
+    box-shadow: var(--shadow-soft);
+}
+
+.shadow-large {
+    box-shadow: var(--shadow-large);
+}
+
+.rounded-image {
+    border-radius: 4px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.oval-image {
+    border-radius: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Se vuelve rectangular */
 
 /* Botones estilo Firma de Ingeniería */
 .btn {
     display: inline-block;
     padding: 14px 28px;
-    border-radius: 2px; /* Corte recto/ligeramente suavizado en bordes */
+    border-radius: 2px;
+    /* Corte recto/ligeramente suavizado en bordes */
     font-family: var(--font-heading);
     font-size: 0.95rem;
     font-weight: 700;
@@ -116,9 +162,17 @@ ul {
     font-size: 1.05rem;
 }
 
-.mt-4 { margin-top: 2rem; }
-.mt-5 { margin-top: 3rem; }
-.mb-4 { margin-bottom: 2rem; }
+.mt-4 {
+    margin-top: 2rem;
+}
+
+.mt-5 {
+    margin-top: 3rem;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
+}
 
 /* Navegación */
 .navbar {
@@ -126,7 +180,8 @@ ul {
     top: 0;
     width: 100%;
     background-color: #ffffff;
-    border-bottom: 1px solid var(--bg-lines); /* Bordes rígidos */
+    border-bottom: 1px solid var(--bg-lines);
+    /* Bordes rígidos */
     z-index: 1000;
     padding: 15px 0;
     transition: var(--transition);
@@ -170,6 +225,35 @@ ul {
 
 .nav-links a:not(.btn):hover {
     color: var(--accent-orange);
+}
+
+/* Botones de herramienta integrados en el navbar */
+.nav-tool-btn {
+    /* Borde muy suave — no compite con el botón naranja */
+    border: 1px solid #e2e8f0;
+    background: transparent;
+    font-size: 0.85rem;
+    width: 36px;
+    height: 36px;
+    color: var(--primary-color);
+    /* Sin margin-left aquí: el gap del flexbox + el separador lo manejan abajo */
+    margin-left: 0;
+}
+
+.nav-tool-btn:hover {
+    background-color: var(--bg-light);
+    color: var(--accent-orange);
+    border-color: var(--accent-orange);
+}
+
+/* Separador visual: espacio generoso antes del primer tool-btn */
+.nav-links .nav-tool-btn:first-of-type {
+    margin-left: 14px;
+}
+
+/* Respiración extra antes del botón naranja CTA */
+.nav-links .btn {
+    margin-left: 10px;
 }
 
 .mobile-menu-btn {
@@ -217,7 +301,8 @@ ul {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
-    transition: opacity 1s ease-in-out; /* Transición suave crossfade */
+    transition: opacity 1s ease-in-out;
+    /* Transición suave crossfade */
 }
 
 .carousel-slide.active {
@@ -230,7 +315,8 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.65); /* Aumentado para mayor legibilidad */
+    background: rgba(0, 0, 0, 0.65);
+    /* Aumentado para mayor legibilidad */
     z-index: 2;
 }
 
@@ -239,7 +325,8 @@ ul {
     align-items: center;
     justify-content: center;
     width: 100%;
-    z-index: 3; /* Por encima del overlay */
+    z-index: 3;
+    /* Por encima del overlay */
 }
 
 .hero-text-box {
@@ -255,14 +342,15 @@ ul {
     margin-bottom: 1.5rem;
     line-height: 1.2;
     color: #ffffff;
-    text-shadow: 2px 4px 12px rgba(0,0,0,0.8); /* Mayor sombra para micro-contraste */
+    text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.8);
+    /* Mayor sombra para micro-contraste */
 }
 
 .hero-subtitle {
     font-size: 1.3rem;
     margin-bottom: 2.5rem;
     color: #ffffff;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
 }
 
 
@@ -274,7 +362,8 @@ ul {
 
 .section-header {
     margin-bottom: 3rem;
-    text-align: left; /* Alineación izquierda en lugar de centrada para verse más corporativo */
+    text-align: left;
+    /* Alineación izquierda en lugar de centrada para verse más corporativo */
     border-left: 5px solid var(--accent-orange);
     padding-left: 20px;
 }
@@ -284,7 +373,8 @@ ul {
     color: #fff;
     width: 60px;
     height: 60px;
-    border-radius: 2px; /* Cuadrado industrial en lugar de círculo */
+    border-radius: 2px;
+    /* Cuadrado industrial en lugar de círculo */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -305,56 +395,96 @@ ul {
     text-align: justify;
 }
 
-/* Riesgos Grid */
-.riesgos-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+/* ── Carrusel automático de riesgos ── */
+.riesgos-slider {
+    width: 100%;
+    overflow: hidden;
     margin-top: 40px;
-    align-items: stretch;
+    /* Fade suave y más ancho en los bordes — evita que los logos se "mueran" bruscamente */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
+.riesgos-track-auto {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: scrollRiesgos 14s linear infinite;
+}
+
+/* Pausa al pasar el mouse */
+.riesgos-slider:hover .riesgos-track-auto {
+    animation-play-state: paused;
+}
+
+@keyframes scrollRiesgos {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Cada card — mismo tamaño fijo */
 .riesgo-card {
+    flex: 0 0 260px;
+    width: 260px;
     background: #fff;
-    padding: 30px 20px;
-    border-radius: 0; /* Sin radio de borde */
-    border: 1px solid var(--bg-lines); /* Borde estructurado */
-    transition: var(--transition);
+    border: 1px solid var(--bg-lines);
+    border-top: 3px solid transparent;
+    border-radius: 2px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alineado a la izquierda */
-    height: 100%;
+    overflow: hidden;
+    transition: border-top-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .riesgo-card:hover {
-    border-color: var(--primary-color);
-    box-shadow: var(--shadow-soft);
+    border-top-color: var(--accent-orange);
+    box-shadow: 0 8px 24px rgba(13, 30, 54, 0.12);
+    transform: translateY(-4px);
 }
 
+/* Imagen — misma altura en todas */
 .circle-img-container {
     width: 100%;
-    height: 160px;
-    border-radius: 8px; /* Bordes redondeados más suaves */
+    height: 180px;
     overflow: hidden;
-    margin-bottom: 20px;
+    flex-shrink: 0;
 }
 
 .circle-img-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
+.riesgo-card:hover .circle-img-container img {
+    transform: scale(1.06);
+}
+
+/* Título */
 .riesgo-card h3 {
-    font-size: 1.1rem;
-    margin: 0;
-    margin-top: auto;
+    font-size: 1rem;
     font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--primary-color);
+    padding: 16px 18px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.riesgo-card h3 i {
-    margin-right: 8px; /* Espacio para que el ícono respire */
+/* Dark mode */
+body.dark-theme .riesgo-card {
+    background-color: #1e293b;
+    border-color: #334155;
 }
+
+body.dark-theme .riesgo-card h3 {
+    color: #f8fafc;
+}
+
+
 
 /* Seguro Hipotecario */
 .container-flex {
@@ -371,7 +501,8 @@ ul {
 .card-text {
     background: #fff;
     padding: 40px;
-    border-radius: 0; /* Cero radio */
+    border-radius: 0;
+    /* Cero radio */
     border: 1px solid var(--bg-lines);
     border-left: 5px solid var(--accent-orange);
 }
@@ -398,7 +529,8 @@ hr {
 .nosotros-box {
     background: #fff;
     padding: 40px;
-    border: 1px solid var(--bg-lines); /* Borde geométrico */
+    border: 1px solid var(--bg-lines);
+    /* Borde geométrico */
     border-top: 4px solid var(--primary-color);
 }
 
@@ -433,8 +565,10 @@ hr {
 .valor-item {
     background: #fff;
     padding: 35px 25px;
-    border-radius: 0; /* Cero radio */
-    text-align: left; /* Alineado izq */
+    border-radius: 0;
+    /* Cero radio */
+    text-align: left;
+    /* Alineado izq */
     border: 1px solid var(--bg-lines);
     border-top: 3px solid transparent;
     transition: var(--transition);
@@ -449,10 +583,14 @@ hr {
     box-shadow: var(--shadow-soft);
 }
 
+/* Consistencia de íconos: mismo peso visual (regular/outline) para todos los valores */
 .valor-item i {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--primary-color);
     margin-bottom: 15px;
+    /* Forzamos estilo outline (fa-regular) para uniformidad visual */
+    font-style: normal;
+    line-height: 1;
 }
 
 .valor-item h4 {
@@ -528,7 +666,8 @@ hr {
 .footer {
     background-color: #f0f4f8;
     position: relative;
-    padding: 80px 0 0 0; /* Quitamos el padding inferior para que el footer dark llegue al borde */
+    padding: 80px 0 0 0;
+    /* Quitamos el padding inferior para que el footer dark llegue al borde */
 }
 
 .footer-content {
@@ -552,7 +691,8 @@ hr {
 
 .footer-form-container {
     background: #fff;
-    padding: 50px;
+    padding: 50px 50px 32px 50px;
+    /* padding-bottom extra para que el botón respire */
     border-radius: 0;
     border: 1px solid var(--bg-lines);
     border-top: 5px solid var(--accent-orange);
@@ -612,23 +752,29 @@ hr {
 .logos-track {
     display: flex;
     width: max-content;
-    gap: 80px; 
+    gap: 80px;
     animation: scrollLogos 25s linear infinite;
     align-items: center;
 }
 
 @keyframes scrollLogos {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - 40px)); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 40px));
+    }
 }
 
 .logo-item {
     font-size: 1.8rem;
     font-family: var(--font-heading);
     font-weight: 900;
-    color: var(--text-muted); /* Fallback */
+    color: var(--text-muted);
+    /* Fallback */
     filter: grayscale(100%);
-    opacity: 0.4; 
+    opacity: 0.4;
     transition: var(--transition);
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -640,13 +786,22 @@ hr {
 
 .logo-item:hover {
     filter: grayscale(0%);
-    opacity: 1; /* Retoma protagonismo en hover */
+    opacity: 1;
+    /* Retoma protagonismo en hover */
     color: var(--primary-color);
 }
 
-.pb-4 { padding-bottom: 2rem; }
-.pt-0 { padding-top: 0; }
-.text-muted { color: var(--text-muted); }
+.pb-4 {
+    padding-bottom: 2rem;
+}
+
+.pt-0 {
+    padding-top: 0;
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
 
 /* Social Proof: Testimonios */
 .testimonios-section {
@@ -668,7 +823,8 @@ hr {
     border-top: 3px solid var(--primary-color);
     transition: var(--transition);
     display: flex;
-    flex-direction: column; /* Para alinear con stretch */
+    flex-direction: column;
+    /* Para alinear con stretch */
 }
 
 .testimonio-card:hover {
@@ -702,7 +858,8 @@ hr {
 }
 
 .testimonio-author {
-    margin-top: auto; /* Empuja el autor hasta abajo si hay espacio sobrante */
+    margin-top: auto;
+    /* Empuja el autor hasta abajo si hay espacio sobrante */
     padding-top: 25px;
     display: flex;
     flex-direction: column;
@@ -786,26 +943,27 @@ hr {
     margin-bottom: 0;
 }
 
-/* WhatsApp Flotante */
+/* WhatsApp Flotante — único protagonista en la esquina inferior derecha */
 .whatsapp-btn {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 60px;
-    height: 60px;
+    width: 62px;
+    height: 62px;
     background-color: #25D366;
     color: white;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 35px;
-    z-index: 100;
-    transition: var(--transition);
+    font-size: 36px;
+    z-index: 200;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.45);
 }
 
 .whatsapp-btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.12);
     background-color: #128C7E;
     color: white;
 }
@@ -818,26 +976,14 @@ hr {
     will-change: opacity, visibility;
 }
 
-/* Floating UI Components */
+/* Floating UI Components — solo scroll-top subsiste aquí, lang/theme se mueven al navbar */
 .floating-tools {
-    position: fixed;
-    right: 30px;
-    bottom: 120px; /* Sobre la mitad entre Whatsapp y parte inferior */
-    background: #ffffff;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 5px;
-    z-index: 99;
-    border: 1px solid var(--bg-lines);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: var(--transition);
+    display: none; /* Movido al navbar — mantenemos el div por si main.js lo referencia */
 }
 
 .tool-btn {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -846,25 +992,29 @@ hr {
     font-weight: 700;
     color: var(--text-main);
     transition: var(--transition);
-    font-size: 1.1rem;
+    font-size: 1rem;
+    border: 1px solid var(--bg-lines);
+    background: transparent;
 }
 
 .tool-btn:hover {
     background-color: var(--bg-light);
     color: var(--accent-orange);
+    border-color: var(--accent-orange);
 }
 
 .lang-btn {
-    font-size: 0.95rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
 }
 
+/* Scroll-top: aparece solo tras mucho scroll (600px) — invisible por defecto */
 .scroll-top {
     position: fixed;
     right: 30px;
-    bottom: 250px; /* Más arriba de la herramienta flotante, o podemos ajustarlo a ser una píldora unida. Lo pegaremos al pill. Cambiamos bottom: 250px es muy alto */
-    bottom: 220px;
-    width: 50px;
-    height: 50px;
+    bottom: 110px;
+    width: 46px;
+    height: 46px;
     background: #ffffff;
     color: var(--text-main);
     border-radius: 50%;
@@ -872,13 +1022,13 @@ hr {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    z-index: 99;
+    z-index: 150;
     border: 1px solid var(--bg-lines);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     opacity: 0;
     pointer-events: none;
-    transform: translateY(20px);
-    transition: var(--transition);
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .scroll-top.visible {
@@ -894,10 +1044,11 @@ hr {
 
 /* Dark Theme overrides */
 body.dark-theme {
-    --primary-color: #64b5f6; /* Lighter blue for dark theme */
+    --primary-color: #64b5f6;
+    /* Lighter blue for dark theme */
     --text-main: #e0e6ed;
     --text-muted: #a0aab5;
-    --bg-light: #1e293b; 
+    --bg-light: #1e293b;
     --bg-lines: #334155;
     background-color: #0f172a;
 }
@@ -946,12 +1097,18 @@ body.dark-theme .text-blue {
     color: var(--primary-color) !important;
 }
 
-body.dark-theme h1, body.dark-theme h2, body.dark-theme h3, 
-body.dark-theme h4, body.dark-theme h5, body.dark-theme h6 {
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6 {
     color: #f8fafc;
 }
 
-body.dark-theme .text-orange { color: var(--accent-orange) !important; }
+body.dark-theme .text-orange {
+    color: var(--accent-orange) !important;
+}
 
 body.dark-theme .logo,
 body.dark-theme .logo-item {
@@ -962,20 +1119,22 @@ body.dark-theme .nav-links a:not(.btn) {
     color: #e0e6ed;
 }
 
-body.dark-theme .floating-tools, 
 body.dark-theme .scroll-top {
     background: #1e293b;
     border-color: #334155;
     color: #e0e6ed;
 }
 
-body.dark-theme .tool-btn {
+/* Navbar tool-btns en dark mode */
+body.dark-theme .nav-tool-btn {
     color: #e0e6ed;
+    border-color: #334155;
 }
 
-body.dark-theme .tool-btn:hover, 
+body.dark-theme .nav-tool-btn:hover,
 body.dark-theme .scroll-top:hover {
     background: #334155;
+    border-color: var(--accent-orange);
 }
 
 .fade-in-section.is-visible {
@@ -1041,26 +1200,91 @@ body.dark-theme .scroll-top:hover {
 }
 
 @media (max-width: 768px) {
+    /* ── Botón hamburguesa ── */
     .mobile-menu-btn {
         display: block;
     }
 
-    .nav-links {
+    /* ── Contenedor del menú desplegable ──
+       Usamos body .nav-links para ganar sobre body.dark-theme overrides */
+    body .nav-links {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: #fff;
+        /* Siempre blanco en mobile — legibilidad garantizada en cualquier tema */
+        background: #ffffff !important;
         flex-direction: column;
-        padding: 20px 0;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        align-items: stretch;
+        padding: 8px 0 20px 0;
+        box-shadow: 0 8px 28px rgba(13, 30, 54, 0.16);
+        border-radius: 0 0 14px 14px;
+        border-top: 3px solid var(--accent-orange);
         display: none;
+        z-index: 999;
     }
 
-    .nav-links.active {
+    body .nav-links.active {
         display: flex;
     }
 
+    /* ── Contraste máximo en los enlaces ── */
+    body .nav-links a:not(.btn) {
+        color: #0d1e36 !important;    /* azul marino de marca, siempre oscuro */
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 15px 28px;
+        margin: 0;
+        border-bottom: 1px solid #e8edf3;
+        text-align: left;
+        background: transparent;
+        display: block;
+    }
+
+    body .nav-links a:not(.btn):hover {
+        background-color: #f4f6fa !important;
+        color: var(--accent-orange) !important;
+        padding-left: 38px;
+    }
+
+    /* ── Botones de utilidad (ES + tema) ── */
+    body .nav-links .nav-tool-btn:first-of-type {
+        margin-left: 0;
+        border-top: 1px solid #e8edf3;
+        margin-top: 4px;
+    }
+
+    body .nav-links .nav-tool-btn {
+        width: 100% !important;
+        height: auto !important;
+        border: none !important;
+        border-bottom: 1px solid #e8edf3 !important;
+        border-radius: 0 !important;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #0d1e36 !important;
+        background: transparent !important;
+        padding: 13px 28px;
+        justify-content: flex-start;
+        margin: 0;
+        text-align: left;
+    }
+
+    body .nav-links .nav-tool-btn:hover {
+        background-color: #f4f6fa !important;
+        color: var(--accent-orange) !important;
+    }
+
+    /* ── CTA naranja: protagonista al fondo ── */
+    body .nav-links .btn {
+        margin: 16px 24px 0 24px !important;
+        display: block;
+        text-align: center;
+        border-radius: 4px;
+        width: auto;
+    }
+
+    /* ── Hero y grids ── */
     .hero-title {
         font-size: 2.2rem;
     }

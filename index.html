@@ -36,6 +36,9 @@
                 <a href="#nosotros" data-i18n="nav2">Nosotros</a>
                 <a href="#seguro" data-i18n="nav3">Seguros</a>
                 <a href="#elegirnos" data-i18n="nav4">¿Por qué elegirnos?</a>
+                <!-- Controles de Idioma y Tema movidos al navbar -->
+                <div class="tool-btn lang-btn nav-tool-btn" id="langBtn" title="Cambiar Idioma">ES</div>
+                <div class="tool-btn theme-btn nav-tool-btn" id="themeBtn" title="Modo Oscuro/Claro"><i class="fa-regular fa-moon"></i></div>
                 <a href="#contacto" class="btn btn-primary" data-i18n="nav5">Contacto</a>
             </nav>
         </div>
@@ -108,36 +111,59 @@
                 </h2>
             </div>
 
-            <div class="riesgos-grid">
-                <!-- Riesgo 1 -->
-                <div class="riesgo-card">
-                    <div class="circle-img-container">
-                        <img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Lluvias">
+            <!-- Carrusel automático sin flechas -->
+            <div class="riesgos-slider">
+                <div class="riesgos-track-auto">
+                    <!-- Originales -->
+                    <div class="riesgo-card">
+                        <div class="circle-img-container">
+                            <img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Lluvias">
+                        </div>
+                        <h3 data-i18n="r1"><i class="fa-solid fa-droplet text-blue"></i> LLUVIAS</h3>
                     </div>
-                    <h3 data-i18n="r1"><i class="fa-solid fa-droplet text-blue"></i> LLUVIAS</h3>
-                </div>
-                <!-- Riesgo 2 -->
-                <div class="riesgo-card">
-                    <div class="circle-img-container">
-                        <img src="assets/images/sis1.jpg" alt="Sismos">
+                    <div class="riesgo-card">
+                        <div class="circle-img-container">
+                            <img src="assets/images/sis1.jpg" alt="Sismos">
+                        </div>
+                        <h3 data-i18n="r2"><i class="fa-solid fa-house-crack text-orange"></i> SISMOS</h3>
                     </div>
-                    <h3 data-i18n="r2"><i class="fa-solid fa-house-crack text-orange"></i> SISMOS</h3>
-                </div>
-                <!-- Riesgo 3 -->
-                <div class="riesgo-card">
-                    <div class="circle-img-container">
-                        <img src="https://images.unsplash.com/photo-1547683905-f686c993aae5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Inundaciones">
+                    <div class="riesgo-card">
+                        <div class="circle-img-container">
+                            <img src="https://images.unsplash.com/photo-1547683905-f686c993aae5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Inundaciones">
+                        </div>
+                        <h3 data-i18n="r3"><i class="fa-solid fa-water text-blue"></i> INUNDACIONES</h3>
                     </div>
-                    <h3 data-i18n="r3"><i class="fa-solid fa-water text-blue"></i> INUNDACIONES</h3>
-                </div>
-                <!-- Riesgo 4 -->
-                <div class="riesgo-card">
-                    <div class="circle-img-container">
-                        <img src="assets/images/ince1.jpg" alt="Incendios">
+                    <div class="riesgo-card">
+                        <div class="circle-img-container">
+                            <img src="assets/images/ince1.jpg" alt="Incendios">
+                        </div>
+                        <h3 data-i18n="r4"><i class="fa-solid fa-fire text-orange"></i> INCENDIOS</h3>
                     </div>
-                    <h3 data-i18n="r4"><i class="fa-solid fa-fire text-orange"></i> INCENDIOS</h3>
+                    <!-- Duplicados para loop infinito -->
+                    <div class="riesgo-card" aria-hidden="true">
+                        <div class="circle-img-container">
+                            <img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Lluvias">
+                        </div>
+                        <h3><i class="fa-solid fa-droplet text-blue"></i> LLUVIAS</h3>
+                    </div>
+                    <div class="riesgo-card" aria-hidden="true">
+                        <div class="circle-img-container">
+                            <img src="assets/images/sis1.jpg" alt="Sismos">
+                        </div>
+                        <h3><i class="fa-solid fa-house-crack text-orange"></i> SISMOS</h3>
+                    </div>
+                    <div class="riesgo-card" aria-hidden="true">
+                        <div class="circle-img-container">
+                            <img src="https://images.unsplash.com/photo-1547683905-f686c993aae5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Inundaciones">
+                        </div>
+                        <h3><i class="fa-solid fa-water text-blue"></i> INUNDACIONES</h3>
+                    </div>
+                    <div class="riesgo-card" aria-hidden="true">
+                        <div class="circle-img-container">
+                            <img src="assets/images/ince1.jpg" alt="Incendios">
+                        </div>
+                        <h3><i class="fa-solid fa-fire text-orange"></i> INCENDIOS</h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -202,32 +228,32 @@
                 </div>
                 <div class="valores-grid">
                     <div class="valor-item">
-                        <i class="fa-solid fa-handshake"></i>
+                        <i class="fa-regular fa-handshake"></i>
                         <h4>Confianza</h4>
                         <p>Actuamos con honestidad y transparencia, generando seguridad en cada etapa.</p>
                     </div>
                     <div class="valor-item">
-                        <i class="fa-solid fa-bullseye"></i>
+                        <i class="fa-regular fa-circle-dot"></i>
                         <h4>Compromiso</h4>
                         <p>Nos involucramos plenamente buscando el mejor resultado para el cliente.</p>
                     </div>
                     <div class="valor-item">
-                        <i class="fa-solid fa-user-tie"></i>
+                        <i class="fa-regular fa-id-badge"></i>
                         <h4>Profesionalismo</h4>
                         <p>Trabajamos con criterio técnico y responsabilidad en cada gestión.</p>
                     </div>
                     <div class="valor-item">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-regular fa-eye"></i>
                         <h4>Transparencia</h4>
                         <p>Brindamos información clara, veraz y oportuna en todo momento.</p>
                     </div>
                     <div class="valor-item">
-                        <i class="fa-solid fa-bolt"></i>
+                        <i class="fa-regular fa-clock"></i>
                         <h4>Eficiencia</h4>
                         <p>Gestionamos de manera ágil y ordenada optimizando los tiempos.</p>
                     </div>
                     <div class="valor-item">
-                        <i class="fa-solid fa-scale-balanced"></i>
+                        <i class="fa-regular fa-scale-balanced"></i>
                         <h4>Responsabilidad</h4>
                         <p>Asumimos cada proceso garantizando un servicio de máxima calidad.</p>
                     </div>
@@ -426,10 +452,10 @@
         </div>
     </footer>
 
-    <!-- Floating Tools Pill -->
-    <div class="floating-tools shadow-large">
-        <div class="tool-btn lang-btn" id="langBtn" title="Cambiar Idioma">ES</div>
-        <div class="tool-btn theme-btn" id="themeBtn" title="Modo Oscuro/Claro"><i class="fa-regular fa-moon"></i></div>
+    <!-- Floating Tools Pill (lang/theme ahora están en el navbar) -->
+    <div class="floating-tools shadow-large" style="display:none;">
+        <div class="tool-btn lang-btn" id="langBtnOld" title="Cambiar Idioma">ES</div>
+        <div class="tool-btn theme-btn" id="themeBtnOld" title="Modo Oscuro/Claro"><i class="fa-regular fa-moon"></i></div>
     </div>
 
     <!-- Scroll Top Button -->

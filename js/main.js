@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         rootMargin: "0px 0px -50px 0px"
     };
 
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    const appearOnScroll = new IntersectionObserver(function (entries, observer) {
         entries.forEach(entry => {
             if (!entry.isIntersecting) {
                 return;
@@ -56,13 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 4. Form Submission (Prevent default config)
     const contactForm = document.getElementById("contactForm");
-    if(contactForm) {
+    if (contactForm) {
         contactForm.addEventListener("submit", (e) => {
             e.preventDefault();
             // Lógica de simulación
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerText;
-            
+
             submitBtn.innerText = "¡Enviando...";
             submitBtn.disabled = true;
 
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 submitBtn.innerText = "¡Mensaje Enviado con Éxito!";
                 submitBtn.style.backgroundColor = "#25D366"; // WhatsApp Green
                 contactForm.reset();
-                
+
                 setTimeout(() => {
                     submitBtn.innerText = originalText;
                     submitBtn.style.backgroundColor = "";
@@ -87,10 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
         setInterval(() => {
             // Eliminar active de la diapositiva actual
             slides[currentSlide].classList.remove('active');
-            
+
             // Avanzar a la siguiente (volviendo a 0 si llegamos al final)
             currentSlide = (currentSlide + 1) % slides.length;
-            
+
             // Hacer visible la siguiente
             slides[currentSlide].classList.add('active');
         }, 2000); // 2000 = 2 segundos solicitados
@@ -100,7 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrollTopBtn = document.getElementById('scrollTop');
     if (scrollTopBtn) {
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
+            // Aparece solo tras 600px de scroll — limpia la pantalla en visitas cortas
+            if (window.scrollY > 600) {
                 scrollTopBtn.classList.add('visible');
             } else {
                 scrollTopBtn.classList.remove('visible');
@@ -128,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
         themeBtn.addEventListener('click', () => {
             document.body.classList.toggle('dark-theme');
             const isDark = document.body.classList.contains('dark-theme');
-            
+
             if (isDark) {
                 localStorage.setItem('theme', 'dark');
                 themeBtn.innerHTML = '<i class="fa-regular fa-sun"></i>';
@@ -148,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
             currentLangIdx = (currentLangIdx + 1) % langs.length;
             const newLangCode = langs[currentLangIdx].toLowerCase();
             langBtn.innerText = langs[currentLangIdx];
-            
+
             // Actualizar todos los nodos que tengan data-i18n
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
