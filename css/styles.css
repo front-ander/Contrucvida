@@ -433,13 +433,34 @@ ul {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transition: border-top-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    transition: border-top-color 0.25s ease, box-shadow 0.28s ease, transform 0.28s cubic-bezier(0.34,1.56,0.64,1);
 }
 
 .riesgo-card:hover {
     border-top-color: var(--accent-orange);
-    box-shadow: 0 8px 24px rgba(13, 30, 54, 0.12);
-    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(13, 30, 54, 0.18);
+    transform: scale(1.03) translateY(-4px);
+}
+
+/* ── Fase 1.1: Wrapper semántico de enlace ── */
+a.riesgo-card-link {
+    flex: 0 0 260px;
+    width: 260px;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    outline-offset: 3px;
+}
+
+a.riesgo-card-link > .riesgo-card {
+    flex: none;
+    width: 100%;
+}
+
+a.riesgo-card-link:hover > .riesgo-card {
+    border-top-color: var(--accent-orange);
+    box-shadow: 0 14px 36px rgba(13, 30, 54, 0.20);
+    transform: scale(1.03) translateY(-4px);
 }
 
 /* Imagen — misma altura en todas */
@@ -602,7 +623,83 @@ hr {
 .dark-section {
     background-color: var(--primary-color);
     color: #fff;
-    /* Se elimina el radial-gradient por un color sólido serio */
+}
+
+/* ── Fase 2: Parallax Section ── */
+.parallax-section {
+    background-image: url('../assets/images/im6.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--primary-color); /* fallback */
+    position: relative;
+}
+
+.parallax-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 10, 30, 0.80);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.parallax-section > .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Fase 2.3: Word Ticker (slot machine vertical) ── */
+.trust-words-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1.8rem;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.trust-static {
+    color: #a0aec0;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 500;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.word-ticker-wrapper {
+    overflow: hidden;
+    height: 2.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.word-ticker-track {
+    display: flex;
+    flex-direction: column;
+    animation: tickerSlide 9s ease-in-out infinite;
+}
+
+.ticker-word {
+    display: block;
+    height: 2.8rem;
+    line-height: 2.8rem;
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--accent-orange);
+    white-space: nowrap;
+    letter-spacing: -0.3px;
+    text-transform: uppercase;
+}
+
+@keyframes tickerSlide {
+    0%,   23% { transform: translateY(0); }
+    30%,  55% { transform: translateY(-2.8rem); }
+    62%,  87% { transform: translateY(-5.6rem); }
+    94%, 100% { transform: translateY(-8.4rem); }
 }
 
 .elegirnos-grid {
@@ -638,29 +735,68 @@ hr {
     padding-left: 15px;
 }
 
-.bg-white-card {
-    background: #fff;
-    color: var(--text-main);
-    padding: 40px;
-    border-radius: 0;
-    border: 1px solid transparent;
-}
-
-.bg-white-card h3 {
+/* ── Panel ticker derecho (reemplaza cuadro blanco) ── */
+.elegirnos-ticker-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 40px 20px;
+    border-left: 2px solid rgba(255,255,255,0.12);
+    min-height: 380px;
 }
 
-.impacto-img {
+.ticker-label-top {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.big-ticker-wrapper {
+    overflow: hidden;
+    height: 5.5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
     width: 100%;
-    margin: 20px 0;
-    max-height: 250px;
-    object-fit: cover;
+    position: relative;
 }
 
-.impacto-texts p {
-    font-size: 0.95rem;
-    color: var(--text-muted);
+.big-ticker-track {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: bigTickerSlide 9s ease-in-out infinite;
+    will-change: transform;
 }
+
+.big-ticker-word {
+    display: block;
+    height: 5.5rem;
+    line-height: 5.5rem;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 900;
+    color: var(--accent-orange);
+    white-space: nowrap;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+@keyframes bigTickerSlide {
+    0%,   22% { transform: translateY(0); }
+    28%,  50% { transform: translateY(-5.5rem); }
+    56%,  78% { transform: translateY(-11rem); }
+    84%, 100% { transform: translateY(-16.5rem); }
+}
+
 
 /* Footer / Contacto */
 .footer {
@@ -1292,5 +1428,117 @@ body.dark-theme .scroll-top:hover {
     .riesgos-grid,
     .valores-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Fase 3: Formulario de Testimonios
+───────────────────────────────────────────────────────────────────────────── */
+.testimonio-form-wrapper {
+    background: var(--bg-light);
+    border: 1px solid var(--bg-lines);
+    border-top: 4px solid var(--accent-orange);
+    padding: 40px;
+    margin-top: 3rem;
+}
+
+.testimonio-form-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 2rem;
+}
+
+.testimonio-form-header i {
+    font-size: 1.8rem;
+}
+
+.testimonio-form-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.testimonio-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.char-count {
+    display: block;
+    text-align: right;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.req {
+    color: var(--accent-orange);
+}
+
+/* ── Honeypot: absolutamente invisible para humanos ── */
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ── Mensajes de feedback del formulario ── */
+.form-feedback {
+    margin-top: 14px;
+    padding: 12px 18px;
+    border-radius: 2px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: none;
+}
+
+.form-feedback:not(:empty) {
+    display: block;
+}
+
+.feedback-ok {
+    background: #d1fae5;
+    border-left: 4px solid #059669;
+    color: #065f46;
+}
+
+.feedback-err {
+    background: #fee2e2;
+    border-left: 4px solid #dc2626;
+    color: #7f1d1d;
+}
+
+/* Dark mode: testimonio form */
+body.dark-theme .testimonio-form-wrapper {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #e0e6ed;
+}
+
+body.dark-theme .feedback-ok {
+    background: #064e3b;
+    color: #a7f3d0;
+    border-color: #059669;
+}
+
+body.dark-theme .feedback-err {
+    background: #450a0a;
+    color: #fca5a5;
+    border-color: #dc2626;
+}
+
+@media (max-width: 768px) {
+    .testimonio-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonio-form-wrapper {
+        padding: 24px 20px;
     }
 }

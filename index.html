@@ -114,32 +114,44 @@
             <!-- Carrusel automático sin flechas -->
             <div class="riesgos-slider">
                 <div class="riesgos-track-auto">
-                    <!-- Originales -->
-                    <div class="riesgo-card">
-                        <div class="circle-img-container">
-                            <img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Lluvias">
+                    <!-- Originales con enlace semántico (Fase 1.1) -->
+                    <a href="https://www.senamhi.gob.pe/" target="_blank" rel="noopener noreferrer"
+                        class="riesgo-card-link" title="Alertas meteoro lógicas - SENAMHI Perú">
+                        <div class="riesgo-card">
+                            <div class="circle-img-container">
+                                <img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Lluvias">
+                            </div>
+                            <h3 data-i18n="r1"><i class="fa-solid fa-droplet text-blue"></i> LLUVIAS</h3>
                         </div>
-                        <h3 data-i18n="r1"><i class="fa-solid fa-droplet text-blue"></i> LLUVIAS</h3>
-                    </div>
-                    <div class="riesgo-card">
-                        <div class="circle-img-container">
-                            <img src="assets/images/sis1.jpg" alt="Sismos">
+                    </a>
+                    <a href="https://www.igp.gob.pe/" target="_blank" rel="noopener noreferrer"
+                        class="riesgo-card-link" title="Información sísmica - IGP Perú">
+                        <div class="riesgo-card">
+                            <div class="circle-img-container">
+                                <img src="assets/images/sis1.jpg" alt="Sismos">
+                            </div>
+                            <h3 data-i18n="r2"><i class="fa-solid fa-house-crack text-orange"></i> SISMOS</h3>
                         </div>
-                        <h3 data-i18n="r2"><i class="fa-solid fa-house-crack text-orange"></i> SISMOS</h3>
-                    </div>
-                    <div class="riesgo-card">
-                        <div class="circle-img-container">
-                            <img src="https://images.unsplash.com/photo-1547683905-f686c993aae5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Inundaciones">
+                    </a>
+                    <a href="https://www.indeci.gob.pe/" target="_blank" rel="noopener noreferrer"
+                        class="riesgo-card-link" title="Gestión de riesgo de desastres - INDECI">
+                        <div class="riesgo-card">
+                            <div class="circle-img-container">
+                                <img src="https://images.unsplash.com/photo-1547683905-f686c993aae5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Inundaciones">
+                            </div>
+                            <h3 data-i18n="r3"><i class="fa-solid fa-water text-blue"></i> INUNDACIONES</h3>
                         </div>
-                        <h3 data-i18n="r3"><i class="fa-solid fa-water text-blue"></i> INUNDACIONES</h3>
-                    </div>
-                    <div class="riesgo-card">
-                        <div class="circle-img-container">
-                            <img src="assets/images/ince1.jpg" alt="Incendios">
+                    </a>
+                    <a href="https://www.indeci.gob.pe/" target="_blank" rel="noopener noreferrer"
+                        class="riesgo-card-link" title="Prevención de incendios - INDECI">
+                        <div class="riesgo-card">
+                            <div class="circle-img-container">
+                                <img src="assets/images/ince1.jpg" alt="Incendios">
+                            </div>
+                            <h3 data-i18n="r4"><i class="fa-solid fa-fire text-orange"></i> INCENDIOS</h3>
                         </div>
-                        <h3 data-i18n="r4"><i class="fa-solid fa-fire text-orange"></i> INCENDIOS</h3>
-                    </div>
-                    <!-- Duplicados para loop infinito -->
+                    </a>
+                    <!-- Duplicados para loop infinito (aria-hidden: no navegables) -->
                     <div class="riesgo-card" aria-hidden="true">
                         <div class="circle-img-container">
                             <img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Lluvias">
@@ -263,12 +275,24 @@
     </section>
 
     <!-- Por Qué Elegirnos -->
-    <section id="elegirnos" class="section dark-section fade-in-section">
+    <section id="elegirnos" class="section dark-section parallax-section fade-in-section">
         <div class="container">
             <div class="elegirnos-grid">
                 <div class="elegirnos-content">
                     <h2 class="text-white" data-i18n="elegir_h2">¿POR QUÉ CONFIAR <br><span class="text-orange">EN
                             NOSOTROS?</span></h2>
+                    <!-- Ticker vertical animado (Fase 2.3) -->
+                    <div class="trust-words-row">
+                        <span class="trust-static">Tu hogar merece:</span>
+                        <div class="word-ticker-wrapper" aria-label="Seguridad, Confianza, Bienestar">
+                            <div class="word-ticker-track">
+                                <span class="ticker-word">Seguridad</span>
+                                <span class="ticker-word">Confianza</span>
+                                <span class="ticker-word">Bienestar</span>
+                                <span class="ticker-word" aria-hidden="true">Seguridad</span><!-- duplicado para loop suave -->
+                            </div>
+                        </div>
+                    </div>
                     <p class="lead-white">Porque brindamos un servicio integral basado en la confianza, el
                         profesionalismo y la eficiencia, acompañando a nuestros clientes en todo el proceso de
                         activación de su seguro hipotecario hasta la obtención de su indemnización.</p>
