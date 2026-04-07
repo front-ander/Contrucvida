@@ -54,33 +54,91 @@ document.addEventListener("DOMContentLoaded", () => {
         appearOnScroll.observe(section);
     });
 
-    // 4. Form Submission (Prevent default config)
+    // 4. Formulario de Contacto — DOBLE ENVÍO (DB Local + FormSubmit)
     const contactForm = document.getElementById("contactForm");
     if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
+        const submitBtn = document.getElementById('contactSubmitBtn');
+        const msgBox = document.getElementById('contactMsg');
+
+        contactForm.addEventListener("submit", async (e) => {
             e.preventDefault();
-            // Lógica de simulación
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerText;
 
-            submitBtn.innerText = "¡Enviando...";
+            // 1. Validaciones básicas en cliente
+            const nombre = contactForm.nombre.value.trim();
+            const telefono = contactForm.telefono.value.trim();
+            const correo = contactForm.correo.value.trim();
+            const siniestro = contactForm.siniestro.value;
+            const mensaje = contactForm.mensaje.value.trim();
+            const honeypot = contactForm.seguridad_bot.value;
+
+            // Validación estricta de 9 dígitos para Perú
+            if (!/^[0-9]{9}$/.test(telefono)) {
+                msgBox.style.display = "block";
+                msgBox.style.backgroundColor = "#fff3cd"; // Amarillo/Alerta
+                msgBox.style.color = "#856404";
+                msgBox.style.border = "1px solid #ffeeba";
+                msgBox.innerText = "⚠️ Por favor, ingresa un número de celular válido de exactamente 9 dígitos.";
+                setTimeout(() => { msgBox.style.display = "none"; }, 4000);
+                return; // Bloquea el envío
+            }
+
+            // Bloquear botón mientras procesa
+            submitBtn.innerText = "Procesando...";
             submitBtn.disabled = true;
+            msgBox.style.display = "none";
 
-            setTimeout(() => {
-                submitBtn.innerText = "¡Mensaje Enviado con Éxito!";
-                submitBtn.style.backgroundColor = "#25D366"; // WhatsApp Green
+            try {
+                // PASO 1: Guardar en Base de Datos Local (Seguridad anti-pérdida)
+                // InfinityFree bloquea la subida de mail(), pero sí acepta Guardar a DB.
+                const formData = new FormData(contactForm);
+                await fetch('enviar.php', { method: 'POST', body: formData });
+
+                // PASO 2: Enviar correo vía FormSubmit (Puente Externo Seguro)
+                // Usamos fetch AJAX directo para que la página no se recargue jamás.
+                if (!honeypot) {
+                    await fetch('https://formsubmit.co/ajax/9fcc32f427c0e84f6758eb3ffa47b3ea', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            Atención: "NUEVA SOLICITUD DE ASESORÍA",
+                            Nombre: nombre,
+                            Teléfono: telefono,
+                            Correo: correo || "No proporcionó",
+                            Siniestro: siniestro,
+                            Mensaje_Del_Cliente: mensaje
+                        })
+                    });
+                }
+
+                // MOSTRAR ÉXITO FINAL
+                msgBox.style.display = "block";
+                msgBox.style.backgroundColor = "#d4edda";
+                msgBox.style.color = "#155724";
+                msgBox.style.border = "1px solid #c3e6cb";
+                msgBox.innerText = "¡Mensaje enviado con éxito! Nos comunicaremos contigo en breve.";
+
+                // Limpiar todo después de un envío perfecto
                 contactForm.reset();
 
-                setTimeout(() => {
-                    submitBtn.innerText = originalText;
-                    submitBtn.style.backgroundColor = "";
-                    submitBtn.disabled = false;
-                }, 3000);
-            }, 1000);
+            } catch (error) {
+                // MOSTRAR ERROR SI ALGO EXPLOTA
+                msgBox.style.display = "block";
+                msgBox.style.backgroundColor = "#f8d7da";
+                msgBox.style.color = "#721c24";
+                msgBox.style.border = "1px solid #f5c6cb";
+                msgBox.innerText = "Ocurrió un error de conexión, intenta de nuevo o comunícate vía WhatsApp.";
+            } finally {
+                submitBtn.innerText = "Solicitar Mi Asesoría";
+                submitBtn.disabled = false;
+
+                // Ocultar mensaje verde después de 7 segundos
+                setTimeout(() => { msgBox.style.display = "none"; }, 7000);
+            }
         });
     }
-
-    // 5. Hero Background Carousel Auto-Play (Cada 2/2.5 segundos)
     const slides = document.querySelectorAll('.carousel-slide');
     if (slides.length > 0) {
         let currentSlide = 0;

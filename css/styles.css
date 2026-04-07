@@ -418,8 +418,13 @@ ul {
 }
 
 @keyframes scrollRiesgos {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* Cada card — mismo tamaño fijo */
@@ -433,7 +438,7 @@ ul {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transition: border-top-color 0.25s ease, box-shadow 0.28s ease, transform 0.28s cubic-bezier(0.34,1.56,0.64,1);
+    transition: border-top-color 0.25s ease, box-shadow 0.28s ease, transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .riesgo-card:hover {
@@ -452,12 +457,12 @@ a.riesgo-card-link {
     outline-offset: 3px;
 }
 
-a.riesgo-card-link > .riesgo-card {
+a.riesgo-card-link>.riesgo-card {
     flex: none;
     width: 100%;
 }
 
-a.riesgo-card-link:hover > .riesgo-card {
+a.riesgo-card-link:hover>.riesgo-card {
     border-top-color: var(--accent-orange);
     box-shadow: 0 14px 36px rgba(13, 30, 54, 0.20);
     transform: scale(1.03) translateY(-4px);
@@ -631,7 +636,8 @@ hr {
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    background-color: var(--primary-color); /* fallback */
+    background-color: var(--primary-color);
+    /* fallback */
     position: relative;
 }
 
@@ -644,7 +650,7 @@ hr {
     pointer-events: none;
 }
 
-.parallax-section > .container {
+.parallax-section>.container {
     position: relative;
     z-index: 1;
 }
@@ -696,10 +702,26 @@ hr {
 }
 
 @keyframes tickerSlide {
-    0%,   23% { transform: translateY(0); }
-    30%,  55% { transform: translateY(-2.8rem); }
-    62%,  87% { transform: translateY(-5.6rem); }
-    94%, 100% { transform: translateY(-8.4rem); }
+
+    0%,
+    23% {
+        transform: translateY(0);
+    }
+
+    30%,
+    55% {
+        transform: translateY(-2.8rem);
+    }
+
+    62%,
+    87% {
+        transform: translateY(-5.6rem);
+    }
+
+    94%,
+    100% {
+        transform: translateY(-8.4rem);
+    }
 }
 
 .elegirnos-grid {
@@ -743,7 +765,7 @@ hr {
     justify-content: center;
     text-align: center;
     padding: 40px 20px;
-    border-left: 2px solid rgba(255,255,255,0.12);
+    border-left: 2px solid rgba(255, 255, 255, 0.12);
     min-height: 380px;
 }
 
@@ -753,7 +775,7 @@ hr {
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 4px;
-    color: rgba(255,255,255,0.45);
+    color: rgba(255, 255, 255, 0.45);
     text-transform: uppercase;
     margin-bottom: 16px;
 }
@@ -791,10 +813,26 @@ hr {
 }
 
 @keyframes bigTickerSlide {
-    0%,   22% { transform: translateY(0); }
-    28%,  50% { transform: translateY(-5.5rem); }
-    56%,  78% { transform: translateY(-11rem); }
-    84%, 100% { transform: translateY(-16.5rem); }
+
+    0%,
+    22% {
+        transform: translateY(0);
+    }
+
+    28%,
+    50% {
+        transform: translateY(-5.5rem);
+    }
+
+    56%,
+    78% {
+        transform: translateY(-11rem);
+    }
+
+    84%,
+    100% {
+        transform: translateY(-16.5rem);
+    }
 }
 
 
@@ -1114,7 +1152,8 @@ hr {
 
 /* Floating UI Components — solo scroll-top subsiste aquí, lang/theme se mueven al navbar */
 .floating-tools {
-    display: none; /* Movido al navbar — mantenemos el div por si main.js lo referencia */
+    display: none;
+    /* Movido al navbar — mantenemos el div por si main.js lo referencia */
 }
 
 .tool-btn {
@@ -1336,6 +1375,7 @@ body.dark-theme .scroll-top:hover {
 }
 
 @media (max-width: 768px) {
+
     /* ── Botón hamburguesa ── */
     .mobile-menu-btn {
         display: block;
@@ -1366,7 +1406,8 @@ body.dark-theme .scroll-top:hover {
 
     /* ── Contraste máximo en los enlaces ── */
     body .nav-links a:not(.btn) {
-        color: #0d1e36 !important;    /* azul marino de marca, siempre oscuro */
+        color: #0d1e36 !important;
+        /* azul marino de marca, siempre oscuro */
         font-weight: 700;
         font-size: 1rem;
         padding: 15px 28px;
@@ -1540,5 +1581,53 @@ body.dark-theme .feedback-err {
 
     .testimonio-form-wrapper {
         padding: 24px 20px;
+    }
+}
+
+/* ======================================================= */
+/* MINI-CARRUSEL DE SCROLL INFINITO — Sección Valor        */
+/* ======================================================= */
+
+/* 1. Contenedor: limita el ancho y oculta lo que sobresale */
+.mini-carrusel-contenedor {
+    width: 100%;
+    max-width: 350px;
+    overflow: hidden;
+    margin-top: 25px;
+    position: relative;
+}
+
+/* 2. La pista que se mueve de forma continua */
+.mini-carrusel-track {
+    display: flex;
+    gap: 15px;
+    width: max-content;
+    animation: scroll-suave 12s linear infinite;
+}
+
+/* Al pasar el mouse, el carrusel se pausa */
+.mini-carrusel-track:hover {
+    animation-play-state: paused;
+}
+
+/* 3. Imágenes en círculo con borde naranja de marca */
+.img-circulo {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f26622;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+/* 4. Keyframe: se desplaza exactamente el 50% de la pista */
+@keyframes scroll-suave {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 7.5px));
     }
 }
