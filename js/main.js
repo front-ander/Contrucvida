@@ -89,28 +89,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
             try {
                 // PASO 1: Guardar en Base de Datos Local (Seguridad anti-pérdida)
-                // InfinityFree bloquea la subida de mail(), pero sí acepta Guardar a DB.
                 const formData = new FormData(contactForm);
-                await fetch('enviar.php', { method: 'POST', body: formData });
+                const backendRes = await fetch('enviar.php', { method: 'POST', body: formData });
+                const backendData = await backendRes.json();
+
+                if (!backendRes.ok || !backendData.ok) {
+                    throw new Error(backendData.msg || "Error al guardar en el servidor local");
+                }
 
                 // PASO 2: Enviar correo vía FormSubmit (Puente Externo Seguro)
-                // Usamos fetch AJAX directo para que la página no se recargue jamás.
                 if (!honeypot) {
-                    await fetch('https://formsubmit.co/ajax/9fcc32f427c0e84f6758eb3ffa47b3ea', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            Atención: "NUEVA SOLICITUD DE ASESORÍA",
-                            Nombre: nombre,
-                            Teléfono: telefono,
-                            Correo: correo || "No proporcionó",
-                            Siniestro: siniestro,
-                            Mensaje_Del_Cliente: mensaje
-                        })
-                    });
+                    try {
+                        const fsRes = await fetch('https://formsubmit.co/ajax/9fcc32f427c0e84f6758eb3ffa47b3ea', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                Atención: "NUEVA SOLICITUD DE ASESORÍA",
+                                Nombre: nombre,
+                                Teléfono: telefono,
+                                Correo: correo || "No proporcionó",
+                                Siniestro: siniestro,
+                                Mensaje_Del_Cliente: mensaje
+                            })
+                        });
+                        
+                        if (!fsRes.ok) {
+                            console.error("Respuesta fallida de FormSubmit:", await fsRes.text());
+                            throw new Error("FormSubmit devolvió error.");
+                        }
+                    } catch (fsError) {
+                        console.error("Error en FormSubmit:", fsError);
+                        throw new Error("FormSubmit_CORS"); // Marcador especial
+                    }
                 }
 
                 // MOSTRAR ÉXITO FINAL
@@ -118,18 +131,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 msgBox.style.backgroundColor = "#d4edda";
                 msgBox.style.color = "#155724";
                 msgBox.style.border = "1px solid #c3e6cb";
-                msgBox.innerText = "¡Mensaje enviado con éxito! Nos comunicaremos contigo en breve.";
+                msgBox.innerText = backendData.msg || "¡Mensaje enviado con éxito! Nos comunicaremos contigo en breve.";
 
                 // Limpiar todo después de un envío perfecto
                 contactForm.reset();
 
             } catch (error) {
-                // MOSTRAR ERROR SI ALGO EXPLOTA
+                // MOSTRAR ERROR
                 msgBox.style.display = "block";
-                msgBox.style.backgroundColor = "#f8d7da";
-                msgBox.style.color = "#721c24";
-                msgBox.style.border = "1px solid #f5c6cb";
-                msgBox.innerText = "Ocurrió un error de conexión, intenta de nuevo o comunícate vía WhatsApp.";
+                if (error.message === "FormSubmit_CORS") {
+                    msgBox.style.backgroundColor = "#fff3cd"; // Amarillo de advertencia
+                    msgBox.style.color = "#856404";
+                    msgBox.style.border = "1px solid #ffeeba";
+                    msgBox.innerText = "⚠️ Se guardó en la base de datos, pero el correo no se pudo enviar. Verifica la activación de FormSubmit en tu correo.";
+                } else {
+                    msgBox.style.backgroundColor = "#f8d7da";
+                    msgBox.style.color = "#721c24";
+                    msgBox.style.border = "1px solid #f5c6cb";
+                    msgBox.innerText = error.message.includes('fetch') 
+                        ? "Ocurrió un error de conexión con la base de datos, intenta de nuevo." 
+                        : error.message;
+                }
             } finally {
                 submitBtn.innerText = "Solicitar Mi Asesoría";
                 submitBtn.disabled = false;

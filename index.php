@@ -9,6 +9,8 @@ hdr('X-Frame-Options: SAMEORIGIN');              // Anti-clickjacking
 hdr('X-Content-Type-Options: nosniff');          // Anti-MIME sniffing
 hdr('Referrer-Policy: strict-origin-when-cross-origin');
 hdr('Permissions-Policy: geolocation=(), camera=(), microphone=()');
+hdr("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://images.unsplash.com; connect-src 'self' https://formsubmit.co; frame-src 'none'; object-src 'none';");
+
 function hdr(string $h): void
 {
     if (!headers_sent())
@@ -486,6 +488,11 @@ try {
                         <label for="seguridad_bot">Deja esto en blanco</label>
                         <input type="text" name="seguridad_bot" id="seguridad_bot" tabindex="-1">
                     </div>
+                    
+                    <!-- Tokens CSRF y Anti-Bot de Tiempo -->
+                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
+                    <input type="hidden" name="form_timestamp" value="<?= $form_time ?>">
+                    <input type="hidden" name="form_secret" value="<?= $form_secret ?>">
 
                     <div class="form-group">
                         <label for="nombre">Nombre Completo</label>
