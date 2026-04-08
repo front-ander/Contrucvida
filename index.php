@@ -81,7 +81,7 @@ try {
         <div class="container nav-container">
             <a href="#" class="logo">
                 <i class="fa-solid fa-city logo-icon"></i>
-                <span>Construc<span class="text-orange">vida</span></span>
+                <span>GH<span class="text-orange"> Constructivo</span></span>
             </a>
             <div class="mobile-menu-btn" id="mobile-btn">
                 <i class="fa-solid fa-bars"></i>
@@ -102,7 +102,7 @@ try {
     <!-- Hero Section -->
     <section id="hero" class="hero fade-in-section">
         <div class="hero-bg-carousel">
-            <div class="carousel-slide active" style="background-image: url('assets/images/im4.jpeg');"></div>
+            <div class="carousel-slide active" style="background-image: url('assets/images/im22.jpeg');"></div>
             <div class="carousel-slide" style="background-image: url('assets/images/im5.jpg');"></div>
             <div class="carousel-slide" style="background-image: url('assets/images/im6.jpg');"></div>
             <div class="carousel-slide" style="background-image: url('assets/images/im9.jpg');"></div>
@@ -141,15 +141,15 @@ try {
 
                     <div class="mini-carrusel-contenedor">
                         <div class="mini-carrusel-track">
-                            <img src="assets/images/im4.jpeg" alt="Proyecto 1" class="img-circulo">
-                            <img src="assets/images/im5.jpg" alt="Proyecto 2" class="img-circulo">
-                            <img src="assets/images/im6.jpg" alt="Proyecto 3" class="img-circulo">
-                            <img src="assets/images/im9.jpg" alt="Proyecto 4" class="img-circulo">
+                            <img src="assets/images/1.1.png" alt="Proyecto 1" class="img-circulo">
+                            <img src="assets/images/2.1.png" alt="Proyecto 2" class="img-circulo">
+                            <img src="assets/images/3.1.png" alt="Proyecto 3" class="img-circulo">
+                            <img src="assets/images/4.1.png" alt="Proyecto 4" class="img-circulo">
                             <!-- duplicados para el loop infinito -->
-                            <img src="assets/images/im4.jpeg" alt="Proyecto 1" class="img-circulo">
-                            <img src="assets/images/im5.jpg" alt="Proyecto 2" class="img-circulo">
-                            <img src="assets/images/im6.jpg" alt="Proyecto 3" class="img-circulo">
-                            <img src="assets/images/im9.jpg" alt="Proyecto 4" class="img-circulo">
+                            <img src="assets/images/1.1.png" alt="Proyecto 1" class="img-circulo">
+                            <img src="assets/images/2.1.png" alt="Proyecto 2" class="img-circulo">
+                            <img src="assets/images/3.1.png" alt="Proyecto 3" class="img-circulo">
+                            <img src="assets/images/4.1.png" alt="Proyecto 4" class="img-circulo">
                         </div>
                     </div>
                 </div>
@@ -471,7 +471,7 @@ try {
                         patrimonio y brindándote la tranquilidad que necesitas.</strong></p>
                 <div class="contact-methods mt-4">
                     <p><i class="fa-solid fa-phone text-orange"></i> +51 999 999 999</p>
-                    <p><i class="fa-solid fa-envelope text-orange"></i> contacto@construcvida.pe</p>
+                    <p><i class="fa-solid fa-envelope text-orange"></i> contacto@ghconstructivo.pe</p>
                     <p><i class="fa-solid fa-location-dot text-orange"></i> Lima, Perú</p>
                 </div>
             </div>
@@ -531,7 +531,7 @@ try {
         <div class="footer-legal">
             <div class="container legal-flex">
                 <div class="legal-info">
-                    <p><strong>Construcvida S.A.C.</strong> | RUC: 20123456789</p>
+                    <p><strong>GH Constructivo S.A.C.</strong> | RUC: 20123456789</p>
                     <p>Av. Principal 123, Oficina 405, Lima, Perú</p>
                 </div>
                 <div class="legal-links">
@@ -543,7 +543,7 @@ try {
                 </div>
             </div>
             <div class="copyright-line">
-                <p>&copy; 2026 Construcvida. Todos los derechos reservados. Confianza que perdura, calidad que se
+                <p>&copy; 2026 GH Constructivo. Todos los derechos reservados. Confianza que perdura, calidad que se
                     construye.</p>
             </div>
         </div>
