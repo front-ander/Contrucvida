@@ -83,7 +83,7 @@ try {
         <div class="container nav-container">
             <a href="#" class="logo">
                 <i class="fa-solid fa-city logo-icon"></i>
-                <span>GH<span class="text-orange"> Constructivo</span></span>
+                <span>GRUPO HOGAR<span class="text-orange"> Constructivo</span></span>
             </a>
             <div class="mobile-menu-btn" id="mobile-btn">
                 <i class="fa-solid fa-bars"></i>
@@ -143,15 +143,18 @@ try {
 
                     <div class="mini-carrusel-contenedor">
                         <div class="mini-carrusel-track">
+                            <!-- Set original: 5 imágenes (cubren 530px ≥ ancho columna) -->
                             <img src="assets/images/1.1.png" alt="Proyecto 1" class="img-circulo">
-                            <img src="assets/images/2.1.png" alt="Proyecto 2" class="img-circulo">
+                            <img src="assets/images/l1.png"  alt="Proyecto 2" class="img-circulo">
                             <img src="assets/images/3.1.png" alt="Proyecto 3" class="img-circulo">
                             <img src="assets/images/4.1.png" alt="Proyecto 4" class="img-circulo">
-                            <!-- duplicados para el loop infinito -->
                             <img src="assets/images/1.1.png" alt="Proyecto 1" class="img-circulo">
-                            <img src="assets/images/2.1.png" alt="Proyecto 2" class="img-circulo">
+                            <!-- Duplicado para loop infinito -->
+                            <img src="assets/images/l1.png"  alt="Proyecto 2" class="img-circulo">
                             <img src="assets/images/3.1.png" alt="Proyecto 3" class="img-circulo">
                             <img src="assets/images/4.1.png" alt="Proyecto 4" class="img-circulo">
+                            <img src="assets/images/1.1.png" alt="Proyecto 1" class="img-circulo">
+                            <img src="assets/images/l1.png"  alt="Proyecto 2" class="img-circulo">
                         </div>
                     </div>
                 </div>
@@ -250,8 +253,15 @@ try {
     <section id="seguro" class="section seguro-section fade-in-section">
         <div class="container container-flex">
             <div class="seguro-image-col">
-                <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                    alt="Pareja analizando documentos de seguro" class="rounded-image shadow-large">
+                <!-- Carrusel de imágenes — agrega tus fotos en assets/images/ y actualiza los src -->
+                <div class="seguro-carousel shadow-large" id="seguroCarousel">
+                    <img src="assets/images/im22.jpeg" alt="Asesoría en seguros hipotecarios" class="seguro-slide active">
+                    <img src="assets/images/im23.jpeg" alt="Gestión de siniestros" class="seguro-slide">
+                    <img src="assets/images/im24.jpeg" alt="Protección de vivienda" class="seguro-slide">
+                    <img src="assets/images/im25.jpeg" alt="Inspección de daños" class="seguro-slide">
+                    <img src="assets/images/im26.jpeg" alt="Equipo de asesores" class="seguro-slide">
+                    <img src="assets/images/im27.jpeg" alt="Tramitación de seguros" class="seguro-slide">
+                </div>
             </div>
             <div class="seguro-text-col">
                 <h2 class="section-title" data-i18n="seguro_h2">¿CUENTAS CON UN <br><span class="text-orange">SEGURO
@@ -488,9 +498,10 @@ try {
                         <label for="seguridad_bot">Deja esto en blanco</label>
                         <input type="text" name="seguridad_bot" id="seguridad_bot" tabindex="-1">
                     </div>
-                    
+
                     <!-- Tokens CSRF y Anti-Bot de Tiempo -->
-                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
+                    <input type="hidden" name="csrf_token"
+                        value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
                     <input type="hidden" name="form_timestamp" value="<?= $form_time ?>">
                     <input type="hidden" name="form_secret" value="<?= $form_secret ?>">
 

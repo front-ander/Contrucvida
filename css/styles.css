@@ -122,13 +122,16 @@ ul {
 }
 
 .oval-image {
-    border-radius: 0;
+    border-radius: 4px;
     width: 100%;
     height: auto;
+    max-height: 520px;
     object-fit: cover;
+    object-position: center top;
+    display: block;
 }
 
-/* Se vuelve rectangular */
+/* Imagen lateral de sección valor */
 
 /* Botones estilo Firma de Ingeniería */
 .btn {
@@ -196,11 +199,15 @@ ul {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 1.5rem;
+    gap: 8px;
+    /* Reducción ligera del gap para ahorrar espacio */
+    font-size: 1.25rem;
+    /* Achicamos la fuente para que entre todo de largo */
     font-family: var(--font-heading);
     font-weight: 800;
     color: var(--primary-color);
+    white-space: nowrap;
+    /* Evitamos que el texto haga salto de línea (wrap) */
 }
 
 .logo-icon {
@@ -389,6 +396,10 @@ ul {
     align-items: center;
 }
 
+.valor-text {
+    min-width: 0; /* Evita que el grid explote por el track width:max-content */
+}
+
 .valor-text p {
     font-size: 1.1rem;
     color: var(--text-muted);
@@ -522,6 +533,31 @@ body.dark-theme .riesgo-card h3 {
 .seguro-image-col,
 .seguro-text-col {
     flex: 1;
+}
+
+/* ── Carrusel crossfade de la sección seguro ── */
+.seguro-carousel {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.seguro-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    border-radius: 4px;
+}
+
+.seguro-slide.active {
+    opacity: 1;
 }
 
 .card-text {
@@ -1372,9 +1408,31 @@ body.dark-theme .scroll-top:hover {
     .container-flex {
         flex-direction: column-reverse;
     }
+
+    /* Carrusel seguro: altura explícita en móvil */
+    .seguro-image-col {
+        width: 100%;
+    }
+
+    .seguro-carousel {
+        width: 100%;
+        min-height: 260px;
+        aspect-ratio: 4 / 3;
+    }
 }
 
 @media (max-width: 768px) {
+
+    /* ── Ajuste de logo para evitar choque con menú ── */
+    .logo {
+        font-size: 1rem !important;
+        /* Más pequeño para móviles */
+        gap: 6px;
+    }
+
+    .logo-icon {
+        font-size: 1.4rem;
+    }
 
     /* ── Botón hamburguesa ── */
     .mobile-menu-btn {
@@ -1588,21 +1646,25 @@ body.dark-theme .feedback-err {
 /* MINI-CARRUSEL DE SCROLL INFINITO — Sección Valor        */
 /* ======================================================= */
 
-/* 1. Contenedor: limita el ancho y oculta lo que sobresale */
+/* 1. Contenedor: ocupa todo el ancho de la columna de texto */
 .mini-carrusel-contenedor {
     width: 100%;
-    max-width: 350px;
     overflow: hidden;
     margin-top: 25px;
     position: relative;
+    /* Fade suave en los bordes para un efecto premium */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 /* 2. La pista que se mueve de forma continua */
 .mini-carrusel-track {
     display: flex;
-    gap: 15px;
+    gap: 16px;
     width: max-content;
-    animation: scroll-suave 12s linear infinite;
+    /* -6s: arranca ya a mitad de ciclo, eliminando el flash inicial */
+    animation: scroll-suave 12s linear -6s infinite;
+    will-change: transform;
 }
 
 /* Al pasar el mouse, el carrusel se pausa */
@@ -1612,22 +1674,49 @@ body.dark-theme .feedback-err {
 
 /* 3. Imágenes en círculo con borde naranja de marca */
 .img-circulo {
-    width: 75px;
-    height: 75px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #f26622;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 3px solid #f26622;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 4. Keyframe: se desplaza exactamente el 50% de la pista */
+.img-circulo:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(242, 102, 34, 0.35);
+}
+
+/* 4. Keyframe: desplaza el 50% de la pista (un set completo de 4 imgs) */
 @keyframes scroll-suave {
     0% {
         transform: translateX(0);
     }
 
     100% {
-        transform: translateX(calc(-50% - 7.5px));
+        transform: translateX(calc(-50% - 8px));
+    }
+}
+
+/* ── MÓVIL: restaurar exactamente el formato anterior ── */
+@media (max-width: 992px) {
+    .mini-carrusel-contenedor {
+        max-width: 350px;
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .img-circulo {
+        width: 75px;
+        height: 75px;
+        border: 2px solid #f26622;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .img-circulo:hover {
+        transform: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 }

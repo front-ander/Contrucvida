@@ -165,15 +165,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (slides.length > 0) {
         let currentSlide = 0;
         setInterval(() => {
-            // Eliminar active de la diapositiva actual
             slides[currentSlide].classList.remove('active');
-
-            // Avanzar a la siguiente (volviendo a 0 si llegamos al final)
             currentSlide = (currentSlide + 1) % slides.length;
-
-            // Hacer visible la siguiente
             slides[currentSlide].classList.add('active');
-        }, 2000); // 2000 = 2 segundos solicitados
+        }, 2000);
+    }
+
+    // 5b. Carrusel crossfade — Sección Seguro Hipotecario
+    const seguroSlides = document.querySelectorAll('.seguro-slide');
+    if (seguroSlides.length > 0) {
+        let currentSeguro = 0;
+        setInterval(() => {
+            seguroSlides[currentSeguro].classList.remove('active');
+            currentSeguro = (currentSeguro + 1) % seguroSlides.length;
+            seguroSlides[currentSeguro].classList.add('active');
+        }, 2000); // Cambia cada 2 segundos
     }
 
     // 6. Floating Controls: Scroll to Top
