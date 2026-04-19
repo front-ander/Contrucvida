@@ -82,8 +82,9 @@ try {
     <header class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">
-                <i class="fa-solid fa-city logo-icon"></i>
-                <span>GRUPO HOGAR<span class="text-orange"> Constructivo</span></span>
+                <img src="assets/images/logo.jpeg" alt="GH Constructivo" class="logo-img">
+                <span class="logo-tagline"><strong>GRUPO HOGAR</strong><strong
+                        class="text-orange">CONSTRUCTIVO</strong></span>
             </a>
             <div class="mobile-menu-btn" id="mobile-btn">
                 <i class="fa-solid fa-bars"></i>
@@ -105,9 +106,10 @@ try {
     <section id="hero" class="hero fade-in-section">
         <div class="hero-bg-carousel">
             <div class="carousel-slide active" style="background-image: url('assets/images/im22.jpeg');"></div>
-            <div class="carousel-slide" style="background-image: url('assets/images/im5.jpg');"></div>
-            <div class="carousel-slide" style="background-image: url('assets/images/im6.jpg');"></div>
-            <div class="carousel-slide" style="background-image: url('assets/images/im9.jpg');"></div>
+            <div class="carousel-slide" style="background-image: url('assets/images/pri2.jpeg');"></div>
+            <div class="carousel-slide" style="background-image: url('assets/images/pri3.jpeg');"></div>
+            <div class="carousel-slide" style="background-image: url('assets/images/pri4.jpeg');"></div>
+            <div class="carousel-slide" style="background-image: url('assets/images/pri1.jpeg');"></div>
         </div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
@@ -145,16 +147,16 @@ try {
                         <div class="mini-carrusel-track">
                             <!-- Set original: 5 imágenes (cubren 530px ≥ ancho columna) -->
                             <img src="assets/images/1.1.png" alt="Proyecto 1" class="img-circulo">
-                            <img src="assets/images/l1.png"  alt="Proyecto 2" class="img-circulo">
+                            <img src="assets/images/l1.png" alt="Proyecto 2" class="img-circulo">
                             <img src="assets/images/3.1.png" alt="Proyecto 3" class="img-circulo">
                             <img src="assets/images/4.1.png" alt="Proyecto 4" class="img-circulo">
                             <img src="assets/images/1.1.png" alt="Proyecto 1" class="img-circulo">
                             <!-- Duplicado para loop infinito -->
-                            <img src="assets/images/l1.png"  alt="Proyecto 2" class="img-circulo">
+                            <img src="assets/images/l1.png" alt="Proyecto 2" class="img-circulo">
                             <img src="assets/images/3.1.png" alt="Proyecto 3" class="img-circulo">
                             <img src="assets/images/4.1.png" alt="Proyecto 4" class="img-circulo">
                             <img src="assets/images/1.1.png" alt="Proyecto 1" class="img-circulo">
-                            <img src="assets/images/l1.png"  alt="Proyecto 2" class="img-circulo">
+                            <img src="assets/images/l1.png" alt="Proyecto 2" class="img-circulo">
                         </div>
                     </div>
                 </div>
@@ -177,8 +179,7 @@ try {
             <div class="riesgos-slider">
                 <div class="riesgos-track-auto">
                     <!-- Originales con enlace semántico (Fase 1.1) -->
-                    <a href="https://www.senamhi.gob.pe/" target="_blank" rel="noopener noreferrer"
-                        class="riesgo-card-link" title="Alertas meteorológicas - SENAMHI Perú">
+                    <a href="lluvias.php" class="riesgo-card-link" title="Lluvias intensas - cobertura de seguros">
                         <div class="riesgo-card">
                             <div class="circle-img-container">
                                 <img src="assets/images/im10.jpg" alt="Lluvias">
@@ -186,8 +187,7 @@ try {
                             <h3 data-i18n="r1"><i class="fa-solid fa-droplet text-blue"></i> LLUVIAS</h3>
                         </div>
                     </a>
-                    <a href="https://www.igp.gob.pe/" target="_blank" rel="noopener noreferrer" class="riesgo-card-link"
-                        title="Información sísmica - IGP Perú">
+                    <a href="sismos.php" class="riesgo-card-link" title="Sismos - cobertura de seguros">
                         <div class="riesgo-card">
                             <div class="circle-img-container">
                                 <img src="assets/images/sis1.jpg" alt="Sismos">
@@ -195,8 +195,7 @@ try {
                             <h3 data-i18n="r2"><i class="fa-solid fa-house-crack text-orange"></i> SISMOS</h3>
                         </div>
                     </a>
-                    <a href="https://www.cenepred.gob.pe/" target="_blank" rel="noopener noreferrer"
-                        class="riesgo-card-link" title="Gestión de riesgo de desastres - CENEPRED">
+                    <a href="inundaciones.php" class="riesgo-card-link" title="Inundaciones - cobertura de seguros">
                         <div class="riesgo-card">
                             <div class="circle-img-container">
                                 <img src="assets/images/im11.jpg" alt="Inundaciones">
@@ -204,43 +203,42 @@ try {
                             <h3 data-i18n="r3"><i class="fa-solid fa-water text-blue"></i> INUNDACIONES</h3>
                         </div>
                     </a>
-                    <a href="http://www.bomberosperu.gob.pe/" target="_blank" rel="noopener noreferrer"
-                        class="riesgo-card-link" title="Prevención de incendios - Bomberos Voluntarios del Perú">
+                    <a href="incendios.php" class="riesgo-card-link" title="Incendios - cobertura de seguros">
                         <div class="riesgo-card">
                             <div class="circle-img-container">
-                                <img src="assets/images/ince1.jpg" alt="Incendios">
+                                <img src="assets/images/incc1.jpeg" alt="Incendios">
                             </div>
                             <h3 data-i18n="r4"><i class="fa-solid fa-fire text-orange"></i> INCENDIOS</h3>
                         </div>
                     </a>
 
 
-                    <a href="https://www.senamhi.gob.pe/" target="_blank" rel="noopener noreferrer"
-                        class="riesgo-card-link" title="Alertas meteorológicas - SENAMHI Perú">
+                    <a href="lluvias.php" target="_blank" rel="noopener noreferrer" class="riesgo-card-link"
+                        title="Alertas meteorológicas - SENAMHI Perú">
                         <div class="riesgo-card">
                             <div class="circle-img-container"><img src="assets/images/im10.jpg" alt="Lluvias"></div>
                             <h3><i class="fa-solid fa-droplet text-blue"></i> LLUVIAS</h3>
                         </div>
                     </a>
-                    <a href="https://www.igp.gob.pe/" target="_blank" rel="noopener noreferrer" class="riesgo-card-link"
+                    <a href="sismos.php" target="_blank" rel="noopener noreferrer" class="riesgo-card-link"
                         title="Información sísmica - IGP Perú">
                         <div class="riesgo-card">
                             <div class="circle-img-container"><img src="assets/images/sis1.jpg" alt="Sismos"></div>
                             <h3><i class="fa-solid fa-house-crack text-orange"></i> SISMOS</h3>
                         </div>
                     </a>
-                    <a href="https://www.cenepred.gob.pe/" target="_blank" rel="noopener noreferrer"
-                        class="riesgo-card-link" title="Gestión de riesgo de desastres - CENEPRED">
+                    <a href="inundaciones.php" target="_blank" rel="noopener noreferrer" class="riesgo-card-link"
+                        title="Gestión de riesgo de desastres - CENEPRED">
                         <div class="riesgo-card">
                             <div class="circle-img-container"><img src="assets/images/im11.jpg" alt="Inundaciones">
                             </div>
                             <h3><i class="fa-solid fa-water text-blue"></i> INUNDACIONES</h3>
                         </div>
                     </a>
-                    <a href="http://www.bomberosperu.gob.pe/" target="_blank" rel="noopener noreferrer"
-                        class="riesgo-card-link" title="Prevención de incendios - Bomberos Voluntarios del Perú">
+                    <a href="incendios.php" target="_blank" rel="noopener noreferrer" class="riesgo-card-link"
+                        title="Prevención de incendios - Bomberos Voluntarios del Perú">
                         <div class="riesgo-card">
-                            <div class="circle-img-container"><img src="assets/images/ince1.jpg" alt="Incendios"></div>
+                            <div class="circle-img-container"><img src="assets/images/incc1.jpeg" alt="Incendios"></div>
                             <h3><i class="fa-solid fa-fire text-orange"></i> INCENDIOS</h3>
                         </div>
                     </a>
@@ -255,7 +253,8 @@ try {
             <div class="seguro-image-col">
                 <!-- Carrusel de imágenes — agrega tus fotos en assets/images/ y actualiza los src -->
                 <div class="seguro-carousel shadow-large" id="seguroCarousel">
-                    <img src="assets/images/im22.jpeg" alt="Asesoría en seguros hipotecarios" class="seguro-slide active">
+                    <img src="assets/images/im22.jpeg" alt="Asesoría en seguros hipotecarios"
+                        class="seguro-slide active">
                     <img src="assets/images/im23.jpeg" alt="Gestión de siniestros" class="seguro-slide">
                     <img src="assets/images/im24.jpeg" alt="Protección de vivienda" class="seguro-slide">
                     <img src="assets/images/im25.jpeg" alt="Inspección de daños" class="seguro-slide">
@@ -273,7 +272,7 @@ try {
                         la vivienda.</p>
                     <hr>
                     <p><strong>En este contexto, nuestra empresa se encarga de evaluar, sustentar y gestionar todo el
-                            proceso asegurando</strong>
+                            proceso asegurando que el cliente tenga una indemnizacion eficiente y segura</strong>
                 </div>
             </div>
         </div>
@@ -482,9 +481,9 @@ try {
                 <p><strong>Nos encargamos de todo el proceso con eficiencia, transparencia y compromiso, protegiendo tu
                         patrimonio y brindándote la tranquilidad que necesitas.</strong></p>
                 <div class="contact-methods mt-4">
-                    <p><i class="fa-solid fa-phone text-orange"></i> +51 999 999 999</p>
-                    <p><i class="fa-solid fa-envelope text-orange"></i> contacto@ghconstructivo.pe</p>
-                    <p><i class="fa-solid fa-location-dot text-orange"></i> Lima, Perú</p>
+                    <p><i class="fa-solid fa-phone text-orange"></i> +51 932 731 417</p>
+                    <p><i class="fa-solid fa-envelope text-orange"></i> grupohogarconstructivo@gmail.com</p>
+                    <p><i class="fa-solid fa-location-dot text-orange"></i> Piura, Perú</p>
                 </div>
             </div>
             <div class="footer-form-container shadow-large">
@@ -549,8 +548,8 @@ try {
         <div class="footer-legal">
             <div class="container legal-flex">
                 <div class="legal-info">
-                    <p><strong>GH Constructivo S.A.C.</strong> | RUC: 20123456789</p>
-                    <p>Av. Principal 123, Oficina 405, Lima, Perú</p>
+                    <p><strong>Grupohogarconstructivo E.I.R.L</strong> | RUC: ...</p>
+                    <p>SIN LA DIRECCION</p>
                 </div>
                 <div class="legal-links">
                     <a href="#">Políticas de Privacidad</a>
@@ -579,7 +578,7 @@ try {
     </div>
 
     <!-- Botón Whatsapp -->
-    <a href="https://wa.me/51999999999" target="_blank" class="whatsapp-btn shadow-large">
+    <a href="https://wa.me/51932731417" target="_blank" class="whatsapp-btn shadow-large">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 

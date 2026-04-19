@@ -215,6 +215,71 @@ ul {
     color: var(--accent-orange);
 }
 
+.logo-img {
+    height: 56px;             /* un poco más alto ahora que está solo */
+    width: auto;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    mix-blend-mode: multiply; /* Elimina fondo blanco en tema claro */
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.06);
+    filter: brightness(1.05);
+}
+
+/* Tagline junto al logo */
+.logo-tagline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    line-height: 1.4;
+    border-left: 2px solid var(--bg-lines);
+    padding-left: 14px;
+    margin-left: 4px;
+    white-space: nowrap;
+}
+
+.logo-tagline strong {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+    letter-spacing: -0.3px;
+}
+
+/* Dark mode */
+body.dark-theme .logo-tagline {
+    color: #a0aab5;
+    border-color: #334155;
+}
+
+body.dark-theme .logo-tagline strong {
+    color: #f8fafc;
+}
+
+/* En móvil: visible pero compacto */
+@media (max-width: 768px) {
+    .logo-tagline {
+        font-size: 0.62rem;
+        padding-left: 10px;
+        border-left-width: 1px;
+        white-space: normal;    /* permite que haga wrap si es necesario */
+        max-width: 140px;
+        line-height: 1.3;
+    }
+
+    .logo-tagline strong {
+        font-size: 0.68rem;
+    }
+}
+
 .nav-links {
     display: flex;
     gap: 20px;
@@ -397,7 +462,8 @@ ul {
 }
 
 .valor-text {
-    min-width: 0; /* Evita que el grid explote por el track width:max-content */
+    min-width: 0;
+    /* Evita que el grid explote por el track width:max-content */
 }
 
 .valor-text p {
@@ -1324,6 +1390,15 @@ body.dark-theme .text-orange {
 body.dark-theme .logo,
 body.dark-theme .logo-item {
     color: #f8fafc;
+}
+
+body.dark-theme .logo-img {
+    mix-blend-mode: screen;
+    filter: invert(1) hue-rotate(180deg) brightness(1.2);
+}
+
+body.dark-theme .logo:hover .logo-img {
+    filter: invert(1) hue-rotate(180deg) brightness(1.35);
 }
 
 body.dark-theme .nav-links a:not(.btn) {
